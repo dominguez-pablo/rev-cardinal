@@ -23,6 +23,35 @@
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   scroll-snap-stop: always;
+  scroll-behavior: smooth;
+}
+
+/* Pausa suave del autoscroll al hover */
+#hero-carousel.paused {
+  animation-play-state: paused;
+}
+
+/* Infinite marquee para logos/trust section */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2.5rem;
+  animation: marquee-scroll 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -34,5 +63,9 @@
   .card-hover:hover {
     transition: none;
     transform: none;
+  }
+
+  .marquee-track {
+    animation: none;
   }
 }

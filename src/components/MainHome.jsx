@@ -1,27 +1,58 @@
-import React, { useRef } from 'react';
-import '../css/mainhome.css'; // Asegúrate de tener este archivo CSS para estilos específicos de MainHome
+import React, { useRef, useEffect, useState } from 'react';
+import '../css/mainhome.css';
 
 const MainHome = () => {
   const carouselRef = useRef(null);
+  const intervalRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const totalSlides = 2;
 
-  const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-    }
+  const goNext = () => {
+    if (!carouselRef.current) return;
+    const width = carouselRef.current.clientWidth;
+    const currentScroll = carouselRef.current.scrollLeft;
+    const currentIndex = Math.round(currentScroll / width);
+    const nextIndex = (currentIndex + 1) % totalSlides;
+    carouselRef.current.scrollTo({ left: width * nextIndex, behavior: 'smooth' });
+    setActiveSlide(nextIndex);
   };
 
-  const scrollRight = () => {
+  const handleScroll = () => {
     if (carouselRef.current) {
       const width = carouselRef.current.clientWidth;
-      carouselRef.current.scrollTo({ left: width, behavior: 'smooth' });
+      const index = Math.round(carouselRef.current.scrollLeft / width);
+      setActiveSlide(index);
     }
   };
+
+  const pauseAutoScroll = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+
+  const resumeAutoScroll = () => {
+    pauseAutoScroll();
+    intervalRef.current = setInterval(goNext, 5000);
+  };
+
+  useEffect(() => {
+    intervalRef.current = setInterval(goNext, 5000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
 
   return (
     <main className="pt-20 pb-margin-desktop px-gutter-desktop max-w-[1440px] mx-auto space-y-margin-desktop">
       {/* Hero Carousel Section */}
-      <section className="relative h-[600px] md:h-[700px] rounded-xl overflow-hidden mt-margin-desktop border border-white/10">
-        <div ref={carouselRef} className="flex overflow-x-auto snap-x snap-mandatory h-full hide-scrollbar scroll-smooth w-full" id="hero-carousel">
+      <section
+        className="relative h-[600px] md:h-[700px] rounded-xl overflow-hidden mt-margin-desktop border border-white/10"
+        onMouseEnter={pauseAutoScroll}
+        onMouseLeave={resumeAutoScroll}
+      >
+        <div ref={carouselRef} onScroll={handleScroll} className="flex overflow-x-auto snap-x snap-mandatory h-full hide-scrollbar scroll-smooth w-full" id="hero-carousel">
           {/* Slide 1 */}
           <div className="min-w-full h-full snap-center relative">
             <img alt="Modern office" className="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzK2zF1o72s5cTn4TB6snhqvxrotBJcTKMtGjN47Y0k8-HhweO64oBrupXrXORHSMaLVhQcZok8HFlKET2JMCIN96UhCs6QP9ndJgs2xt98xwPEpwwxdmGBFtQqNdPvBIA4LLh2G_WAIMj09gZUooHJi0vfXOZ1a1J8oygQe-3mhjH-G0oYHGoUgfoCLqntOONelcKA6OX_7EDTG0wIbGwMxCrowqnsHwuJg1H0dZld1cEHPYJ_PtObqFs4Zd6ryyqPJ2-TGpq0hxz" />
@@ -70,10 +101,16 @@ const MainHome = () => {
           </div>
         </div>
 
-        {/* Controls */}
+        {/* Indicadores de slide */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
-          <button className="w-2.5 h-2.5 rounded-full bg-primary" onClick={scrollLeft}></button>
-          <button className="w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-white/40" onClick={scrollRight}></button>
+          {Array.from({ length: totalSlides }).map((_, i) => (
+            <div
+              key={i}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                i === activeSlide ? 'bg-primary scale-125' : 'bg-white/20'
+              }`}
+            />
+          ))}
         </div>
       </section>
 
@@ -82,12 +119,21 @@ const MainHome = () => {
         <div className="text-center mb-10">
           <h3 className="font-label-sm text-on-surface-variant uppercase tracking-widest opacity-80">Empresas que confían en nosotros</h3>
         </div>
-        <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale brightness-150">
-          <img alt="Aether" className="h-8 md:h-10 w-auto object-contain" src="data:image/png;base64,..." /> {/* Nota: Mantén tus base64 originales aquí */}
-          <img alt="Vanguard" className="h-8 md:h-10 w-auto object-contain" src="data:image/png;base64,..." />
-          <img alt="Lumina" className="h-8 md:h-10 w-auto object-contain" src="data:image/png;base64,..." />
-          <img alt="Nexure" className="h-8 md:h-10 w-auto object-contain" src="data:image/png;base64,..." />
-          <img alt="Orizon" className="h-8 md:h-10 w-auto object-contain" src="data:image/png;base64,..." />
+        <div className="marquee-container">
+          <div className="marquee-track">
+            {/* Set original */}
+            <img alt="Aether" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            <img alt="Vanguard" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            <img alt="Lumina" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            <img alt="Nexure" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            <img alt="Orizon" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            {/* Set duplicado para loop infinito */}
+            <img alt="Aether" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            <img alt="Vanguard" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            <img alt="Lumina" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            <img alt="Nexure" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+            <img alt="Orizon" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+          </div>
         </div>
       </section>
 
