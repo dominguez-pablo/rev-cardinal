@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@config "../tailwind.config.js"; /* Esta línea es vital para que lea tus colores personalizados */
+
+@layer components {
+  .text-gradient-primary {
+    background: linear-gradient(45deg, #ff1f1f, #ff5c5c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .btn-primary {
+    background: #ff1f1f;
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover {
+    background: #e60000;
+    box-shadow: 0 0 20px rgba(255, 31, 31, 0.4);
+  }
+  .btn-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+  .btn-secondary:hover {
+    border-color: #ff1f1f;
+    color: #ffffff;
+    background-color: rgba(255, 31, 31, 0.1);
+  }
+}

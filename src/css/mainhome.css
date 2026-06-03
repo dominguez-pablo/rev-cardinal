@@ -1,0 +1,38 @@
+/* MainHome styles
+   Nota: este componente está mayormente maquetado con Tailwind.
+   Aquí dejamos solo utilidades específicas usadas por MainHome.jsx.
+*/
+
+/* Ocultar scrollbar del carrusel (manteniendo scroll) */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Hover consistente para tarjetas del Home */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  border-color: rgba(255, 31, 31, 0.4);
+  background-color: #1E293B;
+  transform: translateY(-4px);
+}
+
+/* Ajustes finos del carrusel */
+#hero-carousel {
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-stop: always;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hero-carousel {
+    scroll-behavior: auto;
+  }
+
+  .card-hover,
+  .card-hover:hover {
+    transition: none;
+    transform: none;
+  }
+}
