@@ -1,6 +1,44 @@
 import React, { useRef, useEffect, useState } from 'react';
 import '../css/mainhome.css';
 
+import miniBerlin from '../img/miniBerlin.png';
+import berlinMotors from '../img/berlinMotors.png';
+import upwise from '../img/upwise.png';
+import brod from '../img/brod.png';
+import whatsAppImage from '../img/WhatsApp Image 2026-02-23 at 5.21.34 PM 3.png';
+import untitled2_28 from '../img/Untitled-2 28.png';
+import vand from '../img/vand.png';
+import untitled1_15 from '../img/Untitled-1 15.png';
+import untitled1_7 from '../img/Untitled-1 7.png';
+import untitled1_6 from '../img/Untitled-1 6.png';
+import untitled1_3 from '../img/Untitled-1 3.png';
+import royalEnfield from '../img/royalEnfield.png';
+import vincent from '../img/vincent.png';
+import image118 from '../img/image 118.png';
+import group288 from '../img/Group 288.png';
+import group90 from '../img/Group 90.png';
+import bmwMotorradLogo from '../img/bmw motorrad logo negative 4.png';
+
+const carouselImages = [
+  miniBerlin,
+  berlinMotors,
+  upwise,
+  brod,
+  whatsAppImage,
+  untitled2_28,
+  vand,
+  untitled1_15,
+  untitled1_7,
+  untitled1_6,
+  untitled1_3,
+  royalEnfield,
+  vincent,
+  image118,
+  group288,
+  group90,
+  bmwMotorradLogo,
+];
+
 const MainHome = () => {
   const carouselRef = useRef(null);
   const intervalRef = useRef(null);
@@ -42,6 +80,34 @@ const MainHome = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
+  }, []);
+
+  const marqueeRef = useRef(null);
+  const marqueePosRef = useRef(0);
+  const marqueePausedRef = useRef(false);
+  const marqueeSpeed = 0.5;
+
+  useEffect(() => {
+    const track = marqueeRef.current;
+    if (!track) return;
+
+    let animId;
+    const animate = () => {
+      if (!marqueePausedRef.current) {
+        marqueePosRef.current -= marqueeSpeed;
+        const halfWidth = track.scrollWidth / 2;
+
+        if (Math.abs(marqueePosRef.current) >= halfWidth) {
+          marqueePosRef.current += halfWidth;
+        }
+
+        track.style.transform = `translateX(${marqueePosRef.current}px)`;
+      }
+      animId = requestAnimationFrame(animate);
+    };
+
+    animId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animId);
   }, []);
 
   return (
@@ -119,20 +185,18 @@ const MainHome = () => {
         <div className="text-center mb-10">
           <h3 className="font-label-sm text-on-surface-variant uppercase tracking-widest opacity-80">Empresas que confían en nosotros</h3>
         </div>
-        <div className="marquee-container">
-          <div className="marquee-track">
-            {/* Set original */}
-            <img alt="Aether" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            <img alt="Vanguard" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            <img alt="Lumina" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            <img alt="Nexure" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            <img alt="Orizon" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            {/* Set duplicado para loop infinito */}
-            <img alt="Aether" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            <img alt="Vanguard" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            <img alt="Lumina" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            <img alt="Nexure" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
-            <img alt="Orizon" className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src="data:image/png;base64,..." />
+        <div
+          className="marquee-container"
+          onMouseEnter={() => { marqueePausedRef.current = true; }}
+          onMouseLeave={() => { marqueePausedRef.current = false; }}
+        >
+          <div ref={marqueeRef} className="marquee-track js-marquee">
+            {carouselImages.map((src, i) => (
+              <img key={`a-${i}`} alt={`Logo ${i + 1}`} className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src={src} />
+            ))}
+            {carouselImages.map((src, i) => (
+              <img key={`b-${i}`} alt={`Logo ${i + 1}`} className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src={src} />
+            ))}
           </div>
         </div>
       </section>
