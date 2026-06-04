@@ -1,21 +1,60 @@
-import React from 'react';
-import "../css/header.css"; 
+import React, { useState, useEffect } from 'react';
+import "../css/header.css";
+import logo from "../img/Ícono Blanco fondo transparente.png";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  const scrollToHistoria = (e) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const el = document.getElementById('nuestra-historia');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-white/10 flex justify-between items-center h-20 px-gutter-desktop max-w-[1440px] left-1/2 -translate-x-1/2 z-50">
-      <div className="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
-        RevCardinal
+    <header className="site-header">
+      <div className="header-inner">
+        <a href="/" className="header-brand" onClick={closeMenu}>
+          <img src={logo} alt="RevCardinal" className="header-logo" />
+          <span className="header-title">RevCardinal</span>
+        </a>
+
+        <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
+          <div className="header-nav-bg" onClick={closeMenu}></div>
+          <div className="header-nav-panel">
+            <a href="#servicios" onClick={closeMenu}>Servicios</a>
+            <a href="#proyectos" onClick={closeMenu}>Proyectos</a>
+            <a href="#nuestra-historia" onClick={scrollToHistoria}>Nosotros</a>
+            <a href="#contacto" className="btn-contact-mobile" onClick={closeMenu}>Contacto</a>
+          </div>
+        </nav>
+
+        <a href="#contacto" className="btn-contact">Contacto</a>
+
+        <button
+          className={`hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-      <div className="hidden md:flex space-x-10 font-label-md">
-        <a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Servicios</a>
-        <a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Proyectos</a>
-        <a className="text-on-surface-variant hover:text-primary transition-colors" href="#">Nosotros</a>
-      </div>
-      <button className="btn-secondary px-6 py-2 rounded-lg font-label-md hidden md:block">
-        Contacto
-      </button>
-    </nav>
+    </header>
   );
 };
 
