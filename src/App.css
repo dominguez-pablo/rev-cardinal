@@ -1,5 +1,11 @@
 @import "tailwindcss";
-@config "../tailwind.config.js"; /* Esta línea es vital para que lea tus colores personalizados */
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    overflow-x: hidden;
+  }
+}
 
 @layer components {
   .text-gradient-primary {

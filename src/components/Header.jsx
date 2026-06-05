@@ -14,10 +14,10 @@ const Header = () => {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const scrollToHistoria = (e) => {
+  const scrollToSection = (e, id) => {
     e.preventDefault();
     setMenuOpen(false);
-    const el = document.getElementById('nuestra-historia');
+    const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -36,12 +36,12 @@ const Header = () => {
           <div className="header-nav-panel">
             <a href="#servicios" onClick={closeMenu}>Servicios</a>
             <a href="#proyectos" onClick={closeMenu}>Proyectos</a>
-            <a href="#nuestra-historia" onClick={scrollToHistoria}>Nosotros</a>
-            <a href="#contacto" className="btn-contact-mobile" onClick={closeMenu}>Contacto</a>
+            <a href="#nuestra-historia" onClick={(e) => scrollToSection(e, 'nuestra-historia')}>Nosotros</a>
+            <a href="#contacto" className="btn-contact-mobile" onClick={(e) => scrollToSection(e, 'contacto')}>Contacto</a>
           </div>
         </nav>
 
-        <a href="#contacto" className="btn-contact">Contacto</a>
+        <a href="#contacto" className="btn-contact" onClick={(e) => scrollToSection(e, 'contacto')}>Contacto</a>
 
         <button
           className={`hamburger ${menuOpen ? 'open' : ''}`}

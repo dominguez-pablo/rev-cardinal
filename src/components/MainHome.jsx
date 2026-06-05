@@ -145,15 +145,11 @@ const MainHome = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/30 to-transparent pointer-events-none"></div>
             <div className="absolute inset-0 flex items-end pb-20 md:pb-24 p-gutter-desktop md:p-margin-desktop">
-              <div className="space-y-3 max-w-lg">
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/80 backdrop-blur-sm border border-primary/30 font-label-sm text-white">
-                  <span className="w-2 h-2 rounded-full bg-white mr-2 animate-pulse"></span>
-                  Agencia de Alto Rendimiento
-                </div>
-                <h1 className="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-white drop-shadow-lg">
+              <div className="space-y-4 max-w-lg">
+                <h1 className="hero-title-xl">
                   Rev<span className="text-primary">Cardinal</span>
                 </h1>
-                <p className="font-body-md text-white/80 max-w-md drop-shadow-md">
+                <p className="hero-desc max-w-md">
                   Estrategia digital con precisión quirúrgica. Datos, creatividad y ejecución para llevar tu marca al siguiente nivel.
                 </p>
               </div>
@@ -173,15 +169,11 @@ const MainHome = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
             <div className="absolute inset-0 flex items-center p-gutter-desktop md:p-margin-desktop">
-              <div className="max-w-2xl space-y-4">
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-surface-variant/50 border border-white/10 font-label-sm text-on-surface-variant">
-                  <span className="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-                  Agencia de Alto Rendimiento
-                </div>
-                <h1 className="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface">
+              <div className="max-w-2xl space-y-5">
+                <h1 className="hero-title-lg">
                   Escala el alcance de tu negocio con <span className="text-gradient-primary">precisión estratégica</span>
                 </h1>
-                <p className="font-body-md text-body-lg text-on-surface-variant max-w-xl">
+                <p className="hero-desc max-w-xl">
                   Somos tus socios estratégicos en publicidad y marketing digital, conectando marcas con audiencias reales mediante datos e innovación.
                 </p>
                 <div className="pt-6 flex flex-wrap gap-4">
@@ -211,11 +203,11 @@ const MainHome = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
             <div className="absolute inset-0 flex items-center p-gutter-desktop md:p-margin-desktop">
-              <div className="max-w-2xl space-y-4">
-                <h1 className="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface">
+              <div className="max-w-2xl space-y-5">
+                <h1 className="hero-title-lg">
                   Decisiones basadas en <span className="text-gradient-primary">datos duros</span>
                 </h1>
-                <p className="font-body-md text-body-lg text-on-surface-variant max-w-xl">
+                <p className="hero-desc max-w-xl">
                   Transformamos la complejidad de los datos en estrategias claras y rentables para el crecimiento continuo.
                 </p>
                 <button className="btn-primary px-8 py-4 rounded-lg font-label-md mt-6">Explorar Metodología</button>
@@ -242,7 +234,7 @@ const MainHome = () => {
       {/* Trust Section */}
       <section className="py-margin-desktop border-b border-white/10">
         <div className="text-center mb-10" data-aos="fade-up">
-          <h3 className="font-label-sm text-on-surface-variant uppercase tracking-widest opacity-80">Empresas que confían en nosotros</h3>
+          <h3 className="trust-label">Empresas que confían en nosotros</h3>
         </div>
         <div
           className="marquee-container"
@@ -262,9 +254,9 @@ const MainHome = () => {
 
       {/* Services Section */}
       <section className="py-margin-desktop">
-        <div className="text-center mb-margin-desktop space-y-3" data-aos="fade-up">
-          <h2 className="font-headline-lg text-on-surface">Arquitectura de Crecimiento</h2>
-          <p className="font-body-md text-on-surface-variant max-w-2xl mx-auto">Soluciones integrales diseñadas para maximizar el retorno de inversión.</p>
+        <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
+          <h2 className="section-title">Arquitectura de <span className="text-primary">Crecimiento</span></h2>
+          <p className="section-subtitle">Soluciones integrales diseñadas para maximizar el retorno de inversión.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
@@ -272,8 +264,8 @@ const MainHome = () => {
             <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 border border-primary/20">
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>web</span>
             </div>
-            <h3 className="font-headline-md text-on-surface mb-4">Diseño Web</h3>
-            <p className="font-body-md text-on-surface-variant mb-6">Interfaces de alta conversión, minimalistas y optimizadas para rendimiento extremo.</p>
+            <h3 className="card-title mb-4">Diseño Web</h3>
+            <p className="card-text mb-6">Interfaces de alta conversión, minimalistas y optimizadas para rendimiento extremo.</p>
             <div className="flex flex-col gap-4">
               <button className="flex items-center gap-2 text-[#25D366] font-label-md hover:underline">
                 <span className="material-symbols-outlined text-sm">chat</span> WhatsApp
@@ -289,9 +281,9 @@ const MainHome = () => {
             <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
             <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
               <div className="flex-1">
-                <div className="inline-flex items-center px-2 py-1 rounded bg-primary/20 text-primary font-label-caps mb-4">Alto Impacto</div>
-                <h3 className="font-headline-md text-on-surface mb-4">Campañas Publicitarias</h3>
-                <p className="font-body-md text-on-surface-variant mb-8">Tráfico dirigido mediante algoritmos precisos. Maximizamos el ROI en plataformas clave.</p>
+                
+                <h3 className="card-title mb-4">Campañas Publicitarias</h3>
+                <p className="card-text mb-8">Tráfico dirigido mediante algoritmos precisos. Maximizamos el ROI en plataformas clave.</p>
                 <div className="flex gap-4 flex-wrap">
                   <button className="btn-primary px-6 py-2 rounded-lg font-label-md">Iniciar Campaña</button>
                   <button className="btn-secondary px-6 py-2 rounded-lg font-label-md border-[#25D366]/40 text-[#25D366]">Consulta WhatsApp</button>
@@ -299,7 +291,7 @@ const MainHome = () => {
               </div>
               <div className="w-full md:w-1/2 h-40 rounded-lg bg-black/30 border border-white/10 p-4 relative">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs text-on-surface-variant uppercase tracking-wider">CPA Optimizado</span>
+                  <span className="text-xs text-white/50 uppercase tracking-wider font-semibold">CPA Optimizado</span>
                   <span className="text-primary font-bold">-$12.40</span>
                 </div>
                 <svg className="w-full h-full" viewBox="0 0 100 40">
@@ -316,8 +308,8 @@ const MainHome = () => {
                 <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>architecture</span>
               </div>
               <div>
-                <h3 className="font-headline-md text-on-surface mb-1">Estrategia Digital</h3>
-                <p className="font-body-md text-on-surface-variant max-w-xl">Hojas de ruta personalizadas basadas en auditorías profundas.</p>
+                <h3 className="card-title mb-1">Estrategia Digital</h3>
+                <p className="card-text max-w-xl">Hojas de ruta personalizadas basadas en auditorías profundas.</p>
                 <button className="mt-2 text-[#25D366] font-label-sm flex items-center gap-1">
                   <span className="material-symbols-outlined text-xs">chat</span> Contactar experto
                 </button>
@@ -330,57 +322,57 @@ const MainHome = () => {
 
       {/* Visual Impact Bento Gallery */}
       <section className="py-margin-desktop">
-        <div className="text-center mb-margin-desktop space-y-3" data-aos="fade-up">
-          <h2 className="font-headline-lg text-on-surface">Impacto Visual</h2>
-          <p className="font-body-md text-on-surface-variant max-w-2xl mx-auto">Explora nuestro trabajo a través de lentes de alta tecnología.</p>
+        <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
+          <h2 className="section-title">Impacto <span className="text-primary">Visual</span></h2>
+          <p className="section-subtitle">Explora nuestro trabajo a través de una lente de alta tecnología.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 md:h-[600px]">
-          <div className="relative overflow-hidden rounded-xl border border-white/10 group md:col-span-2 md:row-span-2 h-64 md:h-auto" data-aos="fade-up" data-aos-delay="100">
-            <img alt="Tour" className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZEu3mLT9jU5-5NUOAoVqZl2hVoXE9y-QIu9YdQ8ZNG_0-jFRSCfv7vYqAW0YH8z5-IT4q977Uw5qWw2oF08AUWRBK0hMAj_cnDwgK0X5OhUh2AEcWLT1BIxuBYcp0c7rWD2530drfqBrMl-5EDm1SJkPlMcGfqs4PyJrtSFLokkAmdJdLPahkaYR5U4rN2-T2LlEGi0L2mgEQcrHRJoqygyngTZLMamesJfK6IE62-oiEWYVfjUl2Rz57h024Pyad26Jqs-37FREY" />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+        <div className="gallery-fullwidth grid grid-cols-2 md:grid-cols-4 gap-0 md:h-[500px] overflow-hidden border-y border-white/10">
+          <div className="gallery-item" data-aos="fade-up" data-aos-delay="100">
+            <img alt="Tour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZEu3mLT9jU5-5NUOAoVqZl2hVoXE9y-QIu9YdQ8ZNG_0-jFRSCfv7vYqAW0YH8z5-IT4q977Uw5qWw2oF08AUWRBK0hMAj_cnDwgK0X5OhUh2AEcWLT1BIxuBYcp0c7rWD2530drfqBrMl-5EDm1SJkPlMcGfqs4PyJrtSFLokkAmdJdLPahkaYR5U4rN2-T2LlEGi0L2mgEQcrHRJoqygyngTZLMamesJfK6IE62-oiEWYVfjUl2Rz57h024Pyad26Jqs-37FREY" />
+            <div className="gallery-overlay"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+              <div className="gallery-play-btn">
                 <span className="material-symbols-outlined text-white text-3xl">play_arrow</span>
               </div>
             </div>
-            <div className="absolute bottom-4 left-4 font-label-caps text-white bg-primary px-2 py-1">Tour Virtual</div>
+            <span className="gallery-label-tag">Tour Virtual</span>
           </div>
-          <div className="relative overflow-hidden rounded-xl border border-white/10 group md:col-span-2 h-48 md:h-auto" data-aos="fade-up" data-aos-delay="150">
-            <img alt="Design" className="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtqtmuxkUeS-HphtxcuNaph3poDWcuvsZVKdEkodNSxCVzCd6mtsSpvqIKbsz6ptiPT6_WbyrVgA1BM7RRX5TjOodOJr9QK2wETcfQwm-UBc9qxq45TkfjLHO0saUUS4oD2chfh1t7D5fB-vriC8C-CBzmztdFtfczb7mpBvYLKW41TXb2LX2GwTXR5bDSFVpQsxQtVo7pGTNB_2XG3td-60UUyAVyzOHLC2lQZ3xh_EWMs81s9HUcIGGc" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
-            <div className="absolute bottom-4 left-4 text-white font-label-md">Diseño Estratégico</div>
+          <div className="gallery-item" data-aos="fade-up" data-aos-delay="150">
+            <img alt="Design" src="https://lh3.googleusercontent.com/aida/AP1WRLtqtmuxkUeS-HphtxcuNaph3poDWcuvsZVKdEkodNSxCVzCd6mtsSpvqIKbsz6ptiPT6_WbyrVgA1BM7RRX5TjOodOJr9QK2wETcfQwm-UBc9qxq45TkfjLHO0saUUS4oD2chfh1t7D5fB-vriC8C-CBzmztdFtfczb7mpBvYLKW41TXb2LX2GwTXR5bDSFVpQsxQtVo7pGTNB_2XG3td-60UUyAVyzOHLC2lQZ3xh_EWMs81s9HUcIGGc" />
+            <div className="gallery-overlay"></div>
+            <span className="gallery-label">Diseño Estratégico</span>
           </div>
-          <div className="relative overflow-hidden rounded-xl border border-white/10 group h-48 md:h-auto" data-aos="fade-up" data-aos-delay="200">
-            <img alt="Mapping" className="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLu_MAD0BrE2DC5TKAasDH7-Sxazsp14wYC88D4rmdL56MbxUczWA3nQUXtZClpZM3LEcd4JWgw_teEzb4CpfFgBp6x1b02vh2B-wjo0gNBPkzlPV9uB-Y8k3S0_Kh0FMZhnjlwF4woUkD8-P9-R94AEnr1asaRBYLbURP5p8EURqfh20Bo-DHBuBKT7zByu2m8NbLnjSApTsultPv7NcjbW1xaMn9C8xlE3KvJslwDNl4F7MJHKI6jamHb9" />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-            <div className="absolute bottom-4 left-4 text-white font-label-sm">Mapping</div>
+          <div className="gallery-item" data-aos="fade-up" data-aos-delay="200">
+            <img alt="Mapping" src="https://lh3.googleusercontent.com/aida/AP1WRLu_MAD0BrE2DC5TKAasDH7-Sxazsp14wYC88D4rmdL56MbxUczWA3nQUXtZClpZM3LEcd4JWgw_teEzb4CpfFgBp6x1b02vh2B-wjo0gNBPkzlPV9uB-Y8k3S0_Kh0FMZhnjlwF4woUkD8-P9-R94AEnr1asaRBYLbURP5p8EURqfh20Bo-DHBuBKT7zByu2m8NbLnjSApTsultPv7NcjbW1xaMn9C8xlE3KvJslwDNl4F7MJHKI6jamHb9" />
+            <div className="gallery-overlay"></div>
+            <span className="gallery-label">Mapping</span>
           </div>
-          <div className="relative overflow-hidden rounded-xl border border-white/10 group h-48 md:h-auto" data-aos="fade-up" data-aos-delay="250">
-            <img alt="Conversion" className="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuZbgjZ19fwGaqPwCxuRYckSejsiKzSK6Jge4AkwW9JkgKoGQ1ofl7yvdC_E4mGUDh9Mp2X3JwHqrvmClN1E8Iw521loFKY_jLCEYYW-Co-hg281HrCmRaCrLczz0HfG5TYScZWohFignoR2LCAxfSGES0r1BtC9EiQDWjHNYAX7U85h3YtlOeXTCjKyfpwV_qTAvWRhAIlz_cDO58LlP034h5b5fywrAGaaDmMn4dMuhhr93syqqokqgo0" />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all"></div>
-            <div className="absolute bottom-4 left-4 text-white font-label-sm">Conversion</div>
+          <div className="gallery-item" data-aos="fade-up" data-aos-delay="250">
+            <img alt="Conversion" src="https://lh3.googleusercontent.com/aida/AP1WRLuZbgjZ19fwGaqPwCxuRYckSejsiKzSK6Jge4AkwW9JkgKoGQ1ofl7yvdC_E4mGUDh9Mp2X3JwHqrvmClN1E8Iw521loFKY_jLCEYYW-Co-hg281HrCmRaCrLczz0HfG5TYScZWohFignoR2LCAxfSGES0r1BtC9EiQDWjHNYAX7U85h3YtlOeXTCjKyfpwV_qTAvWRhAIlz_cDO58LlP034h5b5fywrAGaaDmMn4dMuhhr93syqqokqgo0" />
+            <div className="gallery-overlay"></div>
+            <span className="gallery-label">Conversion</span>
           </div>
         </div>
       </section>
 
       {/* Methodology Section */}
       <section className="py-margin-desktop border-t border-white/10">
-        <h2 className="font-headline-lg text-center text-on-surface mb-16" data-aos="fade-up">Metodología <span className="text-primary">Cardinal</span></h2>
+        <h2 className="section-title text-center mb-16" data-aos="fade-up">Metodología <span className="text-primary">Cardinal</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-surface-variant/20 p-8 rounded-xl border border-white/10 text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
-            <div className="w-14 h-14 mx-auto bg-primary/10 rounded-full flex items-center justify-center font-headline-md text-primary mb-6 border border-primary/20 group-hover:scale-110 transition-transform">1</div>
-            <h4 className="font-headline-md text-on-surface mb-3">Análisis</h4>
-            <p className="font-body-md text-on-surface-variant">Auditoría profunda del mercado y competencia para identificar brechas.</p>
+            <div className="method-number">1</div>
+            <h4 className="method-title">Análisis</h4>
+            <p className="method-text">Auditoría profunda del mercado y competencia para identificar brechas.</p>
           </div>
           <div className="bg-surface-variant/20 p-8 rounded-xl border border-white/10 text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
-            <div className="w-14 h-14 mx-auto bg-primary/10 rounded-full flex items-center justify-center font-headline-md text-primary mb-6 border border-primary/20 group-hover:scale-110 transition-transform">2</div>
-            <h4 className="font-headline-md text-on-surface mb-3">Estrategia</h4>
-            <p className="font-body-md text-on-surface-variant">Diseño de una hoja de ruta táctica omnicanal con KPIs definidos.</p>
+            <div className="method-number">2</div>
+            <h4 className="method-title">Estrategia</h4>
+            <p className="method-text">Diseño de una hoja de ruta táctica omnicanal con KPIs definidos.</p>
           </div>
           <div className="bg-surface-variant/20 p-8 rounded-xl border border-white/10 text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="300">
-            <div className="w-14 h-14 mx-auto bg-primary/10 rounded-full flex items-center justify-center font-headline-md text-primary mb-6 border border-primary/20 group-hover:scale-110 transition-transform">3</div>
-            <h4 className="font-headline-md text-on-surface mb-3">Ejecución</h4>
-            <p className="font-body-md text-on-surface-variant">Optimización en tiempo real basada en datos para escalar resultados.</p>
+            <div className="method-number">3</div>
+            <h4 className="method-title">Ejecución</h4>
+            <p className="method-text">Optimización en tiempo real basada en datos para escalar resultados.</p>
           </div>
         </div>
       </section>
@@ -389,8 +381,8 @@ const MainHome = () => {
       <section className="py-20 rounded-2xl bg-gradient-to-br from-surface-variant/40 to-surface-container-lowest border border-white/10 relative overflow-hidden flex flex-col items-center text-center px-6" data-aos="fade-up">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         <div className="relative z-10 max-w-2xl space-y-6">
-          <h2 className="font-headline-lg text-on-surface">¿Listo para dominar tu mercado?</h2>
-          <p className="font-body-lg text-on-surface-variant">Agenda una sesión estratégica gratuita de 30 minutos. Analizaremos tu situación actual y te daremos 3 acciones inmediatas.</p>
+          <h2 className="section-title">¿Listo para dominar tu mercado?</h2>
+          <p className="section-subtitle">Agenda una sesión estratégica gratuita de 30 minutos. Analizaremos tu situación actual y te daremos 3 acciones inmediatas.</p>
           <div className="pt-6">
             <button className="bg-[#25D366] text-white px-10 py-5 rounded-lg font-label-md text-lg flex items-center justify-center gap-3 mx-auto hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(37,211,102,0.4)]">
               Contactar por WhatsApp
@@ -402,36 +394,33 @@ const MainHome = () => {
 
       {/* Nuestra Historia */}
       <section id="nuestra-historia" className="py-margin-desktop border-t border-white/10 scroll-mt-24">
-        <div className="text-center mb-margin-desktop space-y-3" data-aos="fade-up">
-          <h2 className="font-headline-lg text-on-surface">Nuestra <span className="text-primary">Historia</span></h2>
-          <p className="font-body-md text-on-surface-variant max-w-2xl mx-auto">Conocé el equipo y la visión detrás de RevCardinal.</p>
+        <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
+          <h2 className="section-title">Nuestra <span className="text-primary">Historia</span></h2>
+          <p className="section-subtitle">Conocé el equipo y la visión detrás de RevCardinal.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-margin-desktop items-center">
           <div className="space-y-6" data-aos="fade-right">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 font-label-sm text-primary">
-              Sobre Nosotros
-            </div>
-            <h3 className="font-headline-md text-on-surface">
+            <h3 className="card-title">
               Más de 5 años transformando ideas en <span className="text-gradient-primary">resultados medibles</span>
             </h3>
-            <p className="font-body-md text-on-surface-variant leading-relaxed">
+            <p className="card-text">
               RevCardinal nació en 2019 con una misión clara: democratizar el acceso a estrategias de marketing digital de alto rendimiento para empresas de todos los tamaños. Lo que comenzó como un equipo de dos personas en un pequeño coworking, hoy es una agencia consolidada que colabora con marcas líderes en más de 10 industrias.
             </p>
-            <p className="font-body-md text-on-surface-variant leading-relaxed">
+            <p className="card-text">
               Nuestra metodología combina análisis de datos avanzado, creatividad táctica y ejecución precisa. Creemos en las relaciones a largo plazo, en medir cada decisión con KPIs claros y en nunca dejar de iterar. Cada cliente es un socio, cada campaña una oportunidad de superar los límites.
             </p>
             <div className="flex gap-8 pt-4">
               <div>
-                <span className="font-headline-md text-primary">+200</span>
-                <p className="font-body-sm text-on-surface-variant">Clientes satisfechos</p>
+                <span className="stat-number">+200</span>
+                <p className="stat-label">Clientes satisfechos</p>
               </div>
               <div>
-                <span className="font-headline-md text-primary">+50</span>
-                <p className="font-body-sm text-on-surface-variant">Proyectos entregados</p>
+                <span className="stat-number">+50</span>
+                <p className="stat-label">Proyectos entregados</p>
               </div>
               <div>
-                <span className="font-headline-md text-primary">15</span>
-                <p className="font-body-sm text-on-surface-variant">Expertos en el equipo</p>
+                <span className="stat-number">15</span>
+                <p className="stat-label">Expertos en el equipo</p>
               </div>
             </div>
           </div>
@@ -447,12 +436,42 @@ const MainHome = () => {
                   <span className="material-symbols-outlined text-primary">trending_up</span>
                 </div>
                 <div>
-                  <p className="font-body-sm text-on-surface-variant">Crecimiento promedio</p>
-                  <p className="font-headline-md text-primary">+340% ROAS</p>
+                  <p className="text-sm text-white/50 font-medium">Crecimiento promedio</p>
+                  <p className="stat-number">+340% ROAS</p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Agendá tu Turno - Google Calendar */}
+      <section id="contacto" className="py-margin-desktop border-t border-white/10 scroll-mt-24">
+        <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
+         
+          <h2 className="section-title">Reservá una <span className="text-primary">sesión estratégica</span></h2>
+          <p className="section-subtitle">
+            Elegí el día y horario que mejor se adapte a vos. En 30 minutos analizamos tu situación actual y te damos un plan de acción concreto.
+          </p>
+        </div>
+        <div className="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          <div className="rounded-xl overflow-hidden border border-white/10 bg-surface-variant/20 shadow-2xl">
+            <iframe
+              title="Agendar turno RevCardinal"
+              src="https://calendar.google.com/calendar/appointments/schedules/REEMPLAZAR_CON_TU_ID_DE_CALENDARIO"
+              width="100%"
+              height="650"
+              frameBorder="0"
+              className="w-full"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <p className="text-center text-sm text-white/50 mt-4 font-medium">
+            ¿Preferís otro medio? Escribinos por{' '}
+            <a href="#" className="text-[#25D366] hover:underline">WhatsApp</a>
+            {' '}o{' '}
+            <a href="mailto:hola@revcardinal.com" className="text-primary hover:underline">hola@revcardinal.com</a>
+          </p>
         </div>
       </section>
     </main>
