@@ -4,10 +4,16 @@
   left: 0;
   width: 100%;
   z-index: 50;
-  background: rgba(14, 21, 31, 0.527);
+  background: rgba(37, 37, 37, 0);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.5s ease, border-color 0.5s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(21, 30, 46, 0);
+  border-bottom-color: rgba(255, 255, 255, 0.14);
 }
 
 .header-inner {
@@ -17,7 +23,20 @@
   height: 72px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  position: relative;
+  transition: height 0.4s ease;
+}
+
+/* ── Spacers for scroll slide animation ── */
+.header-inner::before,
+.header-inner::after {
+  content: '';
+  flex-grow: 0;
+  transition: flex-grow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-header.scrolled .header-inner {
+  height: 64px;
 }
 
 /* ── Brand ── */
@@ -115,6 +134,60 @@
   color: #ff1f1f;
 }
 
+/* ── Right side wrapper (nav + button) ── */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-left: auto;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 800px;
+}
+
+/* ── Scroll Animation ── */
+.header-logo,
+.header-title {
+  transition: filter 0.4s ease;
+}
+
+@media (min-width: 769px) {
+  .site-header.scrolled .header-inner::before,
+  .site-header.scrolled .header-inner::after {
+    flex-grow: 1;
+  }
+
+  .site-header.scrolled .header-right {
+    opacity: 0;
+    pointer-events: none;
+    max-width: 0;
+    margin-left: 0;
+  }
+
+  .site-header.scrolled .header-logo,
+  .site-header.scrolled .header-title {
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+  }
+
+  /* ── Hover: reveal nav while scrolled ── */
+  .site-header.scrolled:hover .header-inner::before,
+  .site-header.scrolled:hover .header-inner::after {
+    flex-grow: 0;
+  }
+
+  .site-header.scrolled:hover .header-right {
+    opacity: 1;
+    pointer-events: auto;
+    max-width: 800px;
+    margin-left: auto;
+  }
+
+  .site-header.scrolled:hover .header-logo,
+  .site-header.scrolled:hover .header-title {
+    filter: none;
+  }
+}
+
 /* ── Hamburger ── */
 .hamburger {
   display: none;
@@ -165,6 +238,10 @@
 
   .header-title {
     font-size: 17px;
+  }
+
+  .header-right {
+    overflow: visible;
   }
 
   .btn-contact {
