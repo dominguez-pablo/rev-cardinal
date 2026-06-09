@@ -55,7 +55,7 @@
 }
 
 .header-title {
-  font-family: 'Inter', sans-serif;
+  font-family: "gotham";
   font-size: 20px;
   font-weight: 700;
   color: #ffffff;
@@ -79,7 +79,7 @@
 }
 
 .header-nav-panel a {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Gotham', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #C8D1E1;
@@ -114,7 +114,7 @@
 
 /* ── Contact Button (Desktop) ── */
 .btn-contact {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Gotham', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;

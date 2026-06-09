@@ -78,16 +78,16 @@ module.exports = {
         "margin-desktop": "40px"
       },
       fontFamily: {
-        "label-md": ["Inter"],
-        "headline-xl": ["Inter"],
-        "headline-lg-mobile": ["Inter"],
-        "headline-md": ["Inter"],
-        "body-lg": ["Inter"],
-        "headline-lg": ["Inter"],
-        "body-md": ["Inter"],
-        "label-sm": ["Inter"],
-        "body-sm": ["Inter"],
-        "label-caps": ["Inter"]
+        "label-md": ['Gotham'],
+        "headline-xl": ['Gotham'],
+        "headline-lg-mobile": ['Gotham'],
+        "headline-md": ['Gotham'],
+        "body-lg": ['Gotham'],
+        "headline-lg": ['Gotham'],
+        "body-md": ['Gotham'],
+        "label-sm": ['Gotham'],
+        "body-sm": ['Gotham'],
+        "label-caps": ['Gotham']
       },
       fontSize: {
         "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
