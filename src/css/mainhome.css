@@ -140,6 +140,13 @@
   margin-top: 0.25rem;
 }
 
+/* ── Full-Width Breakout ── */
+.section-fullwidth {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
 /* ── Gallery Full-Width ── */
 .gallery-fullwidth {
   width: 100vw;

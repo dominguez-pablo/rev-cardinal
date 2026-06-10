@@ -126,7 +126,7 @@ const MainHome = () => {
     <main className="pt-20 pb-margin-desktop px-gutter-desktop max-w-[1440px] mx-auto space-y-margin-desktop">
       {/* Hero Carousel Section */}
       <section
-        className="relative h-[600px] md:h-[700px] rounded-xl overflow-hidden mt-margin-desktop border border-white/10"
+        className="section-fullwidth relative h-[600px] md:h-[700px] overflow-hidden mt-margin-desktop"
         onMouseEnter={pauseAutoScroll}
         onMouseLeave={resumeAutoScroll}
         data-aos="fade-in"
