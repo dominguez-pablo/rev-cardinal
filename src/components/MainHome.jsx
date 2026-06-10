@@ -20,6 +20,7 @@ import bmwMotorradLogo from '../img/bmw motorrad logo negative 4.png';
 import cardenalVideo from '../videos/cardenal.mp4';
 import estadisticaVideo from '../videos/estadistica.mp4';
 import marketingVideo from '../videos/marketing.mp4';
+import LogotipoCompletoBlanco from '../img/Logotipo completo blanco.png';
 
 const carouselImages = [
   miniBerlin,
@@ -144,12 +145,10 @@ const MainHome = () => {
               preload="auto"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/30 to-transparent pointer-events-none"></div>
-            <div className="absolute inset-0 flex items-end pb-20 md:pb-24 p-gutter-desktop md:p-margin-desktop">
-              <div className="space-y-4 max-w-lg">
-                <h1 className="hero-title-xl">
-                  Rev<span className="text-primary">Cardinal</span>
-                </h1>
-                <p className="hero-desc max-w-md">
+            <div className="absolute inset-0 flex items-center p-gutter-desktop md:p-margin-desktop">
+              <div className="space-y-5 max-w-xl">
+                <img src={LogotipoCompletoBlanco} alt="RevCardinal" className="w-80 md:w-[28rem] drop-shadow-[0_0_40px_rgba(255,255,255,0.15)]" />
+                <p className="text-base md:text-lg text-white/75 max-w-md font-medium leading-relaxed">
                   Estrategia digital con precisión quirúrgica. Datos, creatividad y ejecución para llevar tu marca al siguiente nivel.
                 </p>
               </div>

@@ -110,7 +110,7 @@
 }
 
 .footer-bottom-links a {
-  font-family: "gotham";
+  font-family: 'Gotham', sans-serif;
   font-size: 12px;
   color: rgba(200, 209, 225, 0.5);
   text-decoration: none;
@@ -144,7 +144,40 @@
   box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
 }
 
-/* ── Mobile ── */
+/* ── Developer credit strip ── */
+.footer-dev {
+  width: 100%;
+  padding: 14px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, #1a3a5c, #0d2137, #134b7c, #0d2137);
+  background-size: 300% 300%;
+  animation: dev-strip-shift 6s ease infinite;
+  border-top: 1px solid rgba(100, 180, 255, 0.15);
+}
+
+.footer-dev-link {
+  font-family: 'Gotham', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
+}
+
+.footer-dev-link strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-dev-link:hover {
+  color: #ffffff;
+}
+
+@keyframes dev-strip-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 @media (max-width: 768px) {
   .footer-container {
     padding: 48px 20px 28px;
