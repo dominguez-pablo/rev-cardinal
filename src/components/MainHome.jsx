@@ -17,7 +17,7 @@ import image118 from '../img/image 118.png';
 import group288 from '../img/Group 288.png';
 import group90 from '../img/Group 90.png';
 import bmwMotorradLogo from '../img/bmw motorrad logo negative 4.png';
-import cardenalVideo from '../videos/cardenal.mp4';
+import cardenalVideo from '../videos/drift.mp4';
 import estadisticaVideo from '../videos/estadistica.mp4';
 import marketingVideo from '../videos/marketing.mp4';
 import LogotipoCompletoBlanco from '../img/Logotipo completo blanco.png';
@@ -95,36 +95,8 @@ const MainHome = () => {
     }
   };
 
-  const marqueeRef = useRef(null);
-  const marqueePosRef = useRef(0);
-  const marqueePausedRef = useRef(false);
-  const marqueeSpeed = 0.5;
-
-  useEffect(() => {
-    const track = marqueeRef.current;
-    if (!track) return;
-
-    let animId;
-    const animate = () => {
-      if (!marqueePausedRef.current) {
-        marqueePosRef.current -= marqueeSpeed;
-        const halfWidth = track.scrollWidth / 2;
-
-        if (Math.abs(marqueePosRef.current) >= halfWidth) {
-          marqueePosRef.current += halfWidth;
-        }
-
-        track.style.transform = `translateX(${marqueePosRef.current}px)`;
-      }
-      animId = requestAnimationFrame(animate);
-    };
-
-    animId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animId);
-  }, []);
-
   return (
-    <main className="pt-20 pb-margin-desktop px-gutter-desktop max-w-[1440px] mx-auto space-y-margin-desktop">
+    <main className="pt-20 pb-margin-desktop px-gutter-desktop max-w-[max-width] mx-auto space-y-margin-desktop">
       {/* Hero Carousel Section */}
       <section
         className="section-fullwidth relative h-[600px] md:h-[700px] overflow-hidden mt-margin-desktop"
@@ -146,9 +118,12 @@ const MainHome = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/30 to-transparent pointer-events-none"></div>
             <div className="absolute inset-0 flex items-center p-gutter-desktop md:p-margin-desktop">
-              <div className="space-y-5 max-w-xl">
+              <div className="space-y-6 max-w-2xl">
                 <img src={LogotipoCompletoBlanco} alt="RevCardinal" className="w-80 md:w-[28rem] drop-shadow-[0_0_40px_rgba(255,255,255,0.15)]" />
-                <p className="text-base md:text-lg text-white/75 max-w-md font-medium leading-relaxed">
+                <h1 className="display text-[clamp(2rem,5vw,3.5rem)] md:text-[clamp(3rem,8vw,5rem)] text-white drop-shadow-lg">
+                  Performance, <span className="text-primary">comunidad</span> & producción bajo un mismo techo.
+                </h1>
+                <p className="text-base md:text-lg text-white/75 max-w-xl font-medium leading-relaxed">
                   Estrategia digital con precisión quirúrgica. Datos, creatividad y ejecución para llevar tu marca al siguiente nivel.
                 </p>
               </div>
@@ -231,23 +206,97 @@ const MainHome = () => {
       </section>
 
       {/* Trust Section */}
-      <section className="py-margin-desktop border-b border-white/10">
-        <div className="text-center mb-10" data-aos="fade-up">
-          <h3 className="trust-label">Empresas que confían en nosotros</h3>
+      <div className="marquee-belt">
+        <div className="belt-label" data-aos="fade-up">
+          Marcas que confiaron — <b style={{color:'var(--bone)', fontWeight:500}}>de concesionarios oficiales a hoteles, retail y e-commerce</b>
         </div>
-        <div
-          className="marquee-container"
-          onMouseEnter={() => { marqueePausedRef.current = true; }}
-          onMouseLeave={() => { marqueePausedRef.current = false; }}
-        >
-          <div ref={marqueeRef} className="marquee-track js-marquee">
+        <div className="track-mask">
+          <div className="marquee-track">
             {carouselImages.map((src, i) => (
-              <img key={`a-${i}`} alt={`Logo ${i + 1}`} className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src={src} />
+              <img key={`a-${i}`} alt={`Logo ${i + 1}`} src={src} className={i % 3 === 1 ? 'tall' : ''} />
             ))}
             {carouselImages.map((src, i) => (
-              <img key={`b-${i}`} alt={`Logo ${i + 1}`} className="h-8 md:h-10 w-auto object-contain opacity-60 grayscale brightness-150" src={src} />
+              <img key={`b-${i}`} alt={`Logo ${i + 1}`} src={src} className={i % 3 === 1 ? 'tall' : ''} />
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Proof Strip */}
+      <div className="proof-strip">
+        <div className="proof-tag">// Resultados de cuentas reales — no proyecciones</div>
+        <div className="proof-grid">
+          <div className="proof-cell"><div className="proof-num">7,46<b>×</b></div><div className="proof-label">ROAS en campañas full-funnel de performance</div></div>
+          <div className="proof-cell"><div className="proof-num"><b>$</b>1,40</div><div className="proof-label">costo por conversación en campañas de leads</div></div>
+          <div className="proof-cell"><div className="proof-num">120,5<b>K</b></div><div className="proof-label">visualizaciones en 30 días (+46% de crecimiento)</div></div>
+          <div className="proof-cell"><div className="proof-num">6 <b>países</b></div><div className="proof-label">Argentina, México, Chile, Perú, R. Dominicana y EE.UU.</div></div>
+        </div>
+      </div>
+
+      {/* Argentina Market Data */}
+      <section id="mercado" className="py-margin-desktop border-t border-line">
+        <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
+          <span className="eyebrow">El mercado, hoy</span>
+          <h2 className="section-title">Argentina ya compra<br/>distinto. ¿Tu marca<br/>vende distinto?</h2>
+          <p className="section-subtitle" style={{maxWidth:760}}>No es una opinión: es lo que dicen los números del mercado argentino. El consumo se mudó al canal digital, y la pelea ya no es por estar — es por convertir.</p>
+        </div>
+
+        <div className="ar-grid" data-aos="fade-up">
+          <div className="ar-cell"><div className="ar-num red">+60%</div><div className="ar-text">creció la facturación del e-commerce argentino en 2025 — el doble que la inflación. El consumo presencial, en cambio, sigue cayendo.</div></div>
+          <div className="ar-cell"><div className="ar-num">18%</div><div className="ar-text">del retail argentino ya es online: casi el doble del promedio de Latinoamérica. El que no convierte online, regala mercado.</div></div>
+          <div className="ar-cell"><div className="ar-num red">61%</div><div className="ar-text">de los nuevos compradores online son del interior del país. El crecimiento ya no pasa solo por Buenos Aires: pasa por acá.</div></div>
+          <div className="ar-cell"><div className="ar-num">47%</div><div className="ar-text">de los argentinos ya compra en plataformas del exterior (Temu, Shein). Contra el precio chino no se compite con precio: se compite con marca y comunidad.</div></div>
+        </div>
+        <p className="ar-note">// Fuentes: CACE &amp; Kantar, Estudio Anual de Comercio Electrónico 2025.</p>
+
+        <div className="ar-conclusion" data-aos="fade-up">
+          <p><strong>Traducción:</strong> la oportunidad es enorme y la ventana está abierta. Pero la mayoría de las marcas invierte en pauta sin tener el circuito comercial preparado — y ahí es donde se pierde la plata.</p>
+        </div>
+        <div className="mid-cta" data-aos="fade-up">
+          <p>¿De qué lado de estos números está tu marca?</p>
+          <a href="#" className="btn-wa-header" style={{fontSize:15,padding:'13px 24px'}}>
+            <svg viewBox="0 0 24 24" fill="currentColor" className="wa-svg"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+            Pedir diagnóstico gratis
+          </a>
+        </div>
+      </section>
+
+      {/* El Embudo Roto */}
+      <section id="embudo" className="py-margin-desktop border-t border-line">
+        <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
+          <span className="eyebrow">El problema real</span>
+          <h2 className="section-title">Tu pauta no está rota.<br/>Tu embudo, sí.</h2>
+          <p className="section-subtitle" style={{maxWidth:760}}>La mayoría de las PyMEs no sabe cuántas de sus consultas terminan en venta. Llega el lead… y se muere en un WhatsApp sin responder. Nosotros no "gestionamos anuncios": nos metemos en todo el circuito, de la campaña al cierre.</p>
+        </div>
+        <div className="leak-grid">
+          <div className="leak-col bad" data-aos="fade-up">
+            <div className="leak-tt">Lo que suele pasar</div>
+            <ul>
+              <li>Se invierte en pauta sin saber la tasa de conversión propia</li>
+              <li>Las consultas llegan a un WhatsApp que responde tarde o nunca</li>
+              <li>Nadie hace seguimiento: el interesado compra en otro lado</li>
+              <li>No hay registro: cada lead perdido es invisible</li>
+              <li>Conclusión equivocada: "la publicidad no funciona"</li>
+            </ul>
+          </div>
+          <div className="leak-col good" data-aos="fade-up">
+            <div className="leak-tt">Lo que armamos nosotros</div>
+            <ul>
+              <li>Pauta con objetivos y costos medidos en cada canal</li>
+              <li>WhatsApp automatizado: respuesta al instante, 24/7</li>
+              <li>CRM y flujos de seguimiento: ningún lead queda huérfano</li>
+              <li>Tablero con los números que importan: costo por lead, conversión, ventas</li>
+              <li>Conclusión con datos: qué escalar, qué cortar, qué ajustar</li>
+            </ul>
+          </div>
+        </div>
+        <p className="ar-note" style={{marginTop:22}}>// Las PyMEs que automatizaron su comunicación por WhatsApp reportan en promedio +27% de ventas recurrentes y −40% de tiempo de atención (Meta).</p>
+        <div className="mid-cta" data-aos="fade-up">
+          <p>¿Cuántos leads perdiste este mes sin saberlo?</p>
+          <a href="#" className="btn-wa-header" style={{fontSize:15,padding:'13px 24px'}}>
+            <svg viewBox="0 0 24 24" fill="currentColor" className="wa-svg"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+            Revisemos tu embudo
+          </a>
         </div>
       </section>
 
@@ -259,7 +308,7 @@ const MainHome = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="bg-surface-variant/30 p-8 rounded-xl border border-white/10 card-hover group" data-aos="fade-up" data-aos-delay="100">
+          <div className="bg-panel p-8 rounded-xl border border-line card-hover group" data-aos="fade-up" data-aos-delay="100">
             <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 border border-primary/20">
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>web</span>
             </div>
@@ -276,7 +325,7 @@ const MainHome = () => {
           </div>
 
           {/* Featured Card */}
-          <div className="bg-surface-variant/30 p-8 rounded-xl border border-white/10 md:col-span-2 relative overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="200">
+          <div className="bg-panel p-8 rounded-xl border border-line md:col-span-2 relative overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="200">
             <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
             <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
               <div className="flex-1">
@@ -288,7 +337,7 @@ const MainHome = () => {
                   <button className="btn-secondary px-6 py-2 rounded-lg font-label-md border-[#25D366]/40 text-[#25D366]">Consulta WhatsApp</button>
                 </div>
               </div>
-              <div className="w-full md:w-1/2 h-40 rounded-lg bg-black/30 border border-white/10 p-4 relative">
+              <div className="w-full md:w-1/2 h-40 rounded-lg bg-black/30 border border-line p-4 relative">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-xs text-white/50 uppercase tracking-wider font-semibold">CPA Optimizado</span>
                   <span className="text-primary font-bold">-$12.40</span>
@@ -301,7 +350,7 @@ const MainHome = () => {
           </div>
 
           {/* Bottom Row Card */}
-          <div className="bg-surface-variant/30 p-8 rounded-xl border border-white/10 md:col-span-3 flex flex-col md:flex-row items-center justify-between card-hover" data-aos="fade-up" data-aos-delay="300">
+          <div className="bg-panel p-8 rounded-xl border border-line md:col-span-3 flex flex-col md:flex-row items-center justify-between card-hover" data-aos="fade-up" data-aos-delay="300">
             <div className="flex items-center gap-6 mb-6 md:mb-0">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 shrink-0">
                 <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>architecture</span>
@@ -325,7 +374,7 @@ const MainHome = () => {
           <h2 className="section-title">Impacto <span className="text-primary">Visual</span></h2>
           <p className="section-subtitle">Explora nuestro trabajo a través de una lente de alta tecnología.</p>
         </div>
-        <div className="gallery-fullwidth grid grid-cols-2 md:grid-cols-4 gap-0 md:h-[500px] overflow-hidden border-y border-white/10">
+        <div className="gallery-fullwidth grid grid-cols-2 md:grid-cols-4 gap-0 md:h-[500px] overflow-hidden border-y border-line">
           <div className="gallery-item" data-aos="fade-up" data-aos-delay="100">
             <img alt="Tour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZEu3mLT9jU5-5NUOAoVqZl2hVoXE9y-QIu9YdQ8ZNG_0-jFRSCfv7vYqAW0YH8z5-IT4q977Uw5qWw2oF08AUWRBK0hMAj_cnDwgK0X5OhUh2AEcWLT1BIxuBYcp0c7rWD2530drfqBrMl-5EDm1SJkPlMcGfqs4PyJrtSFLokkAmdJdLPahkaYR5U4rN2-T2LlEGi0L2mgEQcrHRJoqygyngTZLMamesJfK6IE62-oiEWYVfjUl2Rz57h024Pyad26Jqs-37FREY" />
             <div className="gallery-overlay"></div>
@@ -355,20 +404,20 @@ const MainHome = () => {
       </section>
 
       {/* Methodology Section */}
-      <section className="py-margin-desktop border-t border-white/10">
+      <section className="py-margin-desktop border-t border-line">
         <h2 className="section-title text-center mb-16" data-aos="fade-up">Metodología <span className="text-primary">Cardinal</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-surface-variant/20 p-8 rounded-xl border border-white/10 text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
+          <div className="bg-surface-container p-8 rounded-xl border border-line text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
             <div className="method-number">1</div>
             <h4 className="method-title">Análisis</h4>
             <p className="method-text">Auditoría profunda del mercado y competencia para identificar brechas.</p>
           </div>
-          <div className="bg-surface-variant/20 p-8 rounded-xl border border-white/10 text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
+          <div className="bg-surface-container p-8 rounded-xl border border-line text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
             <div className="method-number">2</div>
             <h4 className="method-title">Estrategia</h4>
             <p className="method-text">Diseño de una hoja de ruta táctica omnicanal con KPIs definidos.</p>
           </div>
-          <div className="bg-surface-variant/20 p-8 rounded-xl border border-white/10 text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="300">
+          <div className="bg-surface-container p-8 rounded-xl border border-line text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="300">
             <div className="method-number">3</div>
             <h4 className="method-title">Ejecución</h4>
             <p className="method-text">Optimización en tiempo real basada en datos para escalar resultados.</p>
@@ -377,8 +426,8 @@ const MainHome = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 rounded-2xl bg-gradient-to-br from-surface-variant/40 to-surface-container-lowest border border-white/10 relative overflow-hidden flex flex-col items-center text-center px-6" data-aos="fade-up">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
+      <section className="py-24 rounded-2xl bg-gradient-to-br from-panel to-ink relative overflow-hidden flex flex-col items-center text-center px-6" data-aos="fade-up">
+        <div className="absolute inset-0 bg-[radial-gradient(700px_360px_at_50%_0%,rgba(237,28,36,0.14),transparent_60%)]"></div>
         <div className="relative z-10 max-w-2xl space-y-6">
           <h2 className="section-title">¿Listo para dominar tu mercado?</h2>
           <p className="section-subtitle">Agenda una sesión estratégica gratuita de 30 minutos. Analizaremos tu situación actual y te daremos 3 acciones inmediatas.</p>
@@ -392,7 +441,7 @@ const MainHome = () => {
       </section>
 
       {/* Nuestra Historia */}
-      <section id="nuestra-historia" className="py-margin-desktop border-t border-white/10 scroll-mt-24">
+      <section id="nuestra-historia" className="py-margin-desktop border-t border-line scroll-mt-24">
         <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
           <h2 className="section-title">Nuestra <span className="text-primary">Historia</span></h2>
           <p className="section-subtitle">Conocé el equipo y la visión detrás de RevCardinal.</p>
@@ -424,12 +473,12 @@ const MainHome = () => {
             </div>
           </div>
           <div className="relative" data-aos="fade-left">
-            <div className="relative rounded-xl overflow-hidden border border-white/10 aspect-[4/3]">
-              <div className="absolute inset-0 bg-surface-variant/40 flex items-center justify-center">
+            <div className="relative rounded-xl overflow-hidden border border-line aspect-[4/3]">
+              <div className="absolute inset-0 bg-panel flex items-center justify-center">
                 <span className="material-symbols-outlined text-6xl text-on-surface-variant/30">groups</span>
               </div>
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-surface-container-high border border-white/10 rounded-xl p-4 shadow-lg hidden md:block" data-aos="fade-up" data-aos-delay="200">
+            <div className="absolute -bottom-6 -left-6 bg-surface-container-high border border-line rounded-xl p-4 shadow-lg hidden md:block" data-aos="fade-up" data-aos-delay="200">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                   <span className="material-symbols-outlined text-primary">trending_up</span>
@@ -444,33 +493,45 @@ const MainHome = () => {
         </div>
       </section>
 
-      {/* Agendá tu Turno - Google Calendar */}
-      <section id="contacto" className="py-margin-desktop border-t border-white/10 scroll-mt-24">
+      {/* FAQ */}
+      <section id="faq" className="py-margin-desktop border-t border-line">
         <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
-         
-          <h2 className="section-title">Reservá una <span className="text-primary">sesión estratégica</span></h2>
-          <p className="section-subtitle">
-            Elegí el día y horario que mejor se adapte a vos. En 30 minutos analizamos tu situación actual y te damos un plan de acción concreto.
-          </p>
+          <span className="eyebrow">Preguntas frecuentes</span>
+          <h2 className="section-title">Lo que nos preguntan<br/>antes de escribirnos.</h2>
         </div>
-        <div className="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-          <div className="rounded-xl overflow-hidden border border-white/10 bg-surface-variant/20 shadow-2xl">
-            <iframe
-              title="Agendar turno RevCardinal"
-              src="https://calendar.google.com/calendar/appointments/schedules/REEMPLAZAR_CON_TU_ID_DE_CALENDARIO"
-              width="100%"
-              height="650"
-              frameBorder="0"
-              className="w-full"
-              loading="lazy"
-            ></iframe>
-          </div>
-          <p className="text-center text-sm text-white/50 mt-4 font-medium">
-            ¿Preferís otro medio? Escribinos por{' '}
-            <a href="#" className="text-[#25D366] hover:underline">WhatsApp</a>
-            {' '}o{' '}
-            <a href="mailto:hola@revcardinal.com" className="text-primary hover:underline">hola@revcardinal.com</a>
-          </p>
+        <details className="faq-item reveal" data-aos="fade-up">
+          <summary>¿Cuánto cuesta trabajar con Rev Cardinal?</summary>
+          <div className="faq-answer">Armamos planes a medida según tus objetivos y tu etapa: no vendemos paquetes enlatados. El diagnóstico inicial es <strong>gratis y sin compromiso</strong>, y cotizamos sobre trabajo medible — no sobre promesas.</div>
+        </details>
+        <details className="faq-item reveal" data-aos="fade-up">
+          <summary>¿Trabajan solo con empresas de Tucumán?</summary>
+          <div className="faq-answer">No. Trabajamos con marcas de toda Argentina y del exterior (México, Chile, Perú, R. Dominicana y EE.UU.). Pauta, contenidos, automatización y comunidades se gestionan 100% remoto.</div>
+        </details>
+        <details className="faq-item reveal" data-aos="fade-up">
+          <summary>¿En cuánto tiempo se ven resultados?</summary>
+          <div className="faq-answer">La pauta genera datos desde la primera semana, pero la optimización seria lleva <strong>60 a 90 días</strong> de iteración. Desconfiá de quien te promete magia en días.</div>
+        </details>
+        <details className="faq-item reveal" data-aos="fade-up">
+          <summary>¿Qué los diferencia de otra agencia?</summary>
+          <div className="faq-answer">No gestionamos anuncios sueltos: armamos el <strong>circuito comercial completo</strong> — pauta + WhatsApp automatizado + CRM + reporting. Todo se mide con los números que importan.</div>
+        </details>
+        <details className="faq-item reveal" data-aos="fade-up">
+          <summary>¿Qué necesito para empezar?</summary>
+          <div className="faq-answer">Un mensaje de WhatsApp. Te hacemos un diagnóstico honesto y gratuito de tu presencia digital. Si no podemos ayudarte, también te lo decimos.</div>
+        </details>
+      </section>
+
+      {/* Big CTA */}
+      <section id="contacto" className="big-cta scroll-mt-24">
+        <div className="wrap reveal" data-aos="fade-up">
+          <svg className="bird-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 62 L34 40 L30 22 L46 36 L52 18 L60 36 L84 30 L66 48 L88 56 L62 58 L70 78 L48 62 L26 74 L38 56 Z" fill="#ed1c24"/><circle cx="55" cy="46" r="4" fill="#0a0a0c"/></svg>
+          <h2 className="display">¿Hablamos de tu marca<br/><span className="red">con números en la mano?</span></h2>
+          <p>Un mensaje. Te respondemos en el día con un diagnóstico honesto — gratis y sin compromiso. Si no podemos ayudarte, también te lo decimos.</p>
+          <p style={{fontFamily:'JetBrains Mono',fontSize:12,color:'#5e5e6a',marginTop:14,letterSpacing:'.06em'}}>// Somos boutique: tomamos un número limitado de cuentas por mes para no bajar la calidad.</p>
+          <a href="#" className="btn btn-wa wa-big-btn" style={{display:'inline-flex',alignItems:'center',gap:10}}>
+            <svg viewBox="0 0 24 24" fill="currentColor" style={{width:24,height:24}}><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+            Escribinos por WhatsApp
+          </a>
         </div>
       </section>
     </main>

@@ -2,36 +2,167 @@
 @config "../tailwind.config.js";
 
 @layer base {
+  :root {
+    --ink: #0a0a0c;
+    --ink-2: #101014;
+    --panel: #141419;
+    --line: #26262d;
+    --bone: #f3f1ee;
+    --mute: #9a9aa5;
+    --mute-2: #5e5e6a;
+    --red: #ed1c24;
+    --red-soft: #ff5057;
+    --signal: #4f7cff;
+    --good: #3fd07e;
+    --wa: #25d366;
+  }
+
   body {
+    background: var(--ink);
+    color: var(--bone);
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 @layer components {
   .text-gradient-primary {
-    background: linear-gradient(45deg, #ff1f1f, #ff5c5c);
+    background: linear-gradient(45deg, var(--red), var(--red-soft));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .display {
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.012em;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 2px;
+    background: var(--red);
+  }
+
   .btn-primary {
-    background: #ff1f1f;
-    color: #ffffff;
-    transition: all 0.3s ease;
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 1.05rem;
+    background: var(--red);
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
   }
+
   .btn-primary:hover {
-    background: #e60000;
-    box-shadow: 0 0 20px rgba(255, 31, 31, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(237, 28, 36, 0.35);
   }
+
   .btn-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    background-color: transparent;
-    transition: all 0.3s ease;
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 1.05rem;
+    border: 1px solid var(--line);
+    color: var(--bone);
+    background: transparent;
+    padding: 14px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.15s ease, border-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
   }
+
   .btn-secondary:hover {
-    border-color: #ff1f1f;
-    color: #ffffff;
-    background-color: rgba(255, 31, 31, 0.1);
+    border-color: var(--mute);
+    transform: translateY(-2px);
+    background: transparent;
+    color: var(--bone);
+  }
+
+  .btn-wa {
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 1.05rem;
+    background: var(--wa);
+    color: #06250f;
+    padding: 14px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border: none;
+  }
+
+  .btn-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 38px rgba(37, 211, 102, 0.4);
+  }
+
+  .lead {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: var(--bone);
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .red { color: var(--red); }
+  .sig { color: var(--signal); }
+
+  .chip-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    border: 1px solid var(--line);
+    color: var(--mute);
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  .strikethrough {
+    text-decoration: line-through;
+    text-decoration-color: var(--red);
+    text-decoration-thickness: 3px;
   }
 }
+

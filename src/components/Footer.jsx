@@ -7,7 +7,10 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-brand-col">
-            <div className="footer-logo">RevCardinal</div>
+            <div className="footer-logo">
+              <svg className="footer-bird" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 62 L34 40 L30 22 L46 36 L52 18 L60 36 L84 30 L66 48 L88 56 L62 58 L70 78 L48 62 L26 74 L38 56 Z" fill="#ed1c24"/><circle cx="55" cy="46" r="4" fill="#0a0a0c"/></svg>
+              REV<span style={{fontWeight:500, fontStyle:'normal'}}>CARDINAL</span>
+            </div>
             <p className="footer-desc">
               Agencia de alto rendimiento para marcas que exigen resultados. Precisión, datos y diseño al servicio del crecimiento.
             </p>
@@ -52,8 +55,16 @@ const Footer = () => {
           Desarrollado por <strong>RainDev</strong>
         </a>
       </div>
-*/}
-    
+    */}
+
+      {/* Mobile Sticky CTA */}
+      <div className="sticky-cta">
+        <span className="sticky-cta-text">Diagnóstico gratis<br/>en el día</span>
+        <a href="#" className="sticky-cta-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor" style={{width:18,height:18}}><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
 
       <a aria-label="WhatsApp" className="whatsapp-float" href="#">
         <svg fill="currentColor" height="28" width="28" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
