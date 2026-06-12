@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/footer.css';
+import logoBlanco from '../img/RevCardinal.png';
 
 const Footer = () => {
   return (
@@ -8,8 +9,7 @@ const Footer = () => {
         <div className="footer-grid">
           <div className="footer-brand-col">
             <div className="footer-logo">
-              <svg className="footer-bird" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 62 L34 40 L30 22 L46 36 L52 18 L60 36 L84 30 L66 48 L88 56 L62 58 L70 78 L48 62 L26 74 L38 56 Z" fill="#ed1c24"/><circle cx="55" cy="46" r="4" fill="#0a0a0c"/></svg>
-              REV<span style={{fontWeight:500, fontStyle:'normal'}}>CARDINAL</span>
+              <img src={logoBlanco} alt="RevCardinal Logo" />
             </div>
             <p className="footer-desc">
               Agencia de alto rendimiento para marcas que exigen resultados. Precisión, datos y diseño al servicio del crecimiento.

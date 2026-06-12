@@ -21,6 +21,7 @@ import cardenalVideo from '../videos/drift.mp4';
 import estadisticaVideo from '../videos/estadistica.mp4';
 import marketingVideo from '../videos/marketing.mp4';
 import LogotipoCompletoBlanco from '../img/Logotipo completo blanco.png';
+import logoBlanco from '../img/Ícono Blanco fondo transparente.png';
 
 const carouselImages = [
   miniBerlin,
@@ -96,17 +97,17 @@ const MainHome = () => {
   };
 
   return (
-    <main className="pt-20 pb-margin-desktop px-gutter-desktop max-w-[max-width] mx-auto space-y-margin-desktop">
+    <main className="">
       {/* Hero Carousel Section */}
       <section
-        className="section-fullwidth relative h-[600px] md:h-[700px] overflow-hidden mt-margin-desktop"
+        className="section-fullwidth relative h-[600px] md:h-[700px] overflow-hidden "
         onMouseEnter={pauseAutoScroll}
         onMouseLeave={resumeAutoScroll}
         data-aos="fade-in"
       >
         <div ref={carouselRef} onScroll={handleScroll} className="flex overflow-x-auto snap-x snap-mandatory h-full hide-scrollbar scroll-smooth w-full" id="hero-carousel">
           {/* Slide 1 - Video RevCardinal */}
-          <div className="min-w-full h-full snap-center relative bg-black">
+          <div className="hero-slide">
             <video
               className="absolute inset-0 w-full h-full object-cover"
               src={cardenalVideo}
@@ -116,22 +117,24 @@ const MainHome = () => {
               playsInline
               preload="auto"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/30 to-transparent pointer-events-none"></div>
-            <div className="absolute inset-0 flex items-center p-gutter-desktop md:p-margin-desktop">
-              <div className="space-y-6 max-w-2xl">
-                <img src={LogotipoCompletoBlanco} alt="RevCardinal" className="w-80 md:w-[28rem] drop-shadow-[0_0_40px_rgba(255,255,255,0.15)]" />
-                <h1 className="display text-[clamp(2rem,5vw,3.5rem)] md:text-[clamp(3rem,8vw,5rem)] text-white drop-shadow-lg">
-                  Performance, <span className="text-primary">comunidad</span> & producción bajo un mismo techo.
+            <div className="hero-overlay-l"></div>
+            <div className="hero-content">
+              <div className="hero-text">
+                <h1 className="display">
+                  Performance, <span className="text-primary">comunidad</span> &amp; producción bajo un mismo techo.
                 </h1>
-                <p className="text-base md:text-lg text-white/75 max-w-xl font-medium leading-relaxed">
+                <p className="hero-desc">
                   Estrategia digital con precisión quirúrgica. Datos, creatividad y ejecución para llevar tu marca al siguiente nivel.
                 </p>
               </div>
             </div>
+            <div className="hero-logo-right">
+              <img src={LogotipoCompletoBlanco} alt="RevCardinal" />
+            </div>
           </div>
           
           {/* Slide 2 */}
-          <div className="min-w-full h-full snap-center relative bg-black">
+          <div className="hero-slide">
             <video
               className="absolute inset-0 w-full h-full object-cover"
               src={marketingVideo}
@@ -141,16 +144,16 @@ const MainHome = () => {
               playsInline
               preload="auto"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
-            <div className="absolute inset-0 flex items-center p-gutter-desktop md:p-margin-desktop">
-              <div className="max-w-2xl space-y-5">
+            <div className="hero-overlay-m"></div>
+            <div className="hero-content">
+              <div className="hero-text">
                 <h1 className="hero-title-lg">
                   Escala el alcance de tu negocio con <span className="text-gradient-primary">precisión estratégica</span>
                 </h1>
-                <p className="hero-desc max-w-xl">
+                <p className="hero-desc">
                   Somos tus socios estratégicos en publicidad y marketing digital, conectando marcas con audiencias reales mediante datos e innovación.
                 </p>
-                <div className="pt-6 flex flex-wrap gap-4">
+                <div className="hero-btns">
                   <button className="btn-primary px-8 py-4 rounded-lg font-label-md flex items-center justify-center gap-2">
                     Escala tu Negocio
                     <span className="material-symbols-outlined">arrow_forward</span>
@@ -165,7 +168,7 @@ const MainHome = () => {
           </div>
           
           {/* Slide 3 */}
-          <div className="min-w-full h-full snap-center relative bg-black">
+          <div className="hero-slide">
             <video
               className="absolute inset-0 w-full h-full object-cover"
               src={estadisticaVideo}
@@ -175,13 +178,13 @@ const MainHome = () => {
               playsInline
               preload="auto"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
-            <div className="absolute inset-0 flex items-center p-gutter-desktop md:p-margin-desktop">
-              <div className="max-w-2xl space-y-5">
+            <div className="hero-overlay-m"></div>
+            <div className="hero-content">
+              <div className="hero-text">
                 <h1 className="hero-title-lg">
                   Decisiones basadas en <span className="text-gradient-primary">datos duros</span>
                 </h1>
-                <p className="hero-desc max-w-xl">
+                <p className="hero-desc">
                   Transformamos la complejidad de los datos en estrategias claras y rentables para el crecimiento continuo.
                 </p>
                 <button className="btn-primary px-8 py-4 rounded-lg font-label-md mt-6">Explorar Metodología</button>
@@ -191,15 +194,13 @@ const MainHome = () => {
         </div>
 
         {/* Indicadores de slide */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+        <div className="hero-dots">
           {Array.from({ length: totalSlides }).map((_, i) => (
             <button
               key={i}
               onClick={() => goToSlide(i)}
               aria-label={`Ir al slide ${i + 1}`}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer border-0 outline-none ${
-                i === activeSlide ? 'bg-primary scale-125' : 'bg-white/20 hover:bg-white/40'
-              }`}
+              className={`hero-dot ${i === activeSlide ? 'active' : 'inactive'}`}
             />
           ))}
         </div>
@@ -308,36 +309,35 @@ const MainHome = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="bg-panel p-8 rounded-xl border border-line card-hover group" data-aos="fade-up" data-aos-delay="100">
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-8 border border-primary/20">
+          <div className="svc-card" data-aos="fade-up" data-aos-delay="100">
+            <div className="svc-icon-circle">
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>web</span>
             </div>
-            <h3 className="card-title mb-4">Diseño Web</h3>
-            <p className="card-text mb-6">Interfaces de alta conversión, minimalistas y optimizadas para rendimiento extremo.</p>
-            <div className="flex flex-col gap-4">
-              <button className="flex items-center gap-2 text-[#25D366] font-label-md hover:underline">
+            <h3 className="card-title">Diseño Web</h3>
+            <p className="card-text">Interfaces de alta conversión, minimalistas y optimizadas para rendimiento extremo.</p>
+            <div className="svc-card-links">
+              <div className="svc-wa-link">
                 <span className="material-symbols-outlined text-sm">chat</span> WhatsApp
-              </button>
-              <div className="flex items-center text-primary font-label-md group-hover:translate-x-1 transition-transform cursor-pointer">
+              </div>
+              <div className="svc-arrow-link">
                 Explorar <span className="material-symbols-outlined ml-2 text-sm">arrow_right_alt</span>
               </div>
             </div>
           </div>
 
           {/* Featured Card */}
-          <div className="bg-panel p-8 rounded-xl border border-line md:col-span-2 relative overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="200">
-            <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
-            <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
-              <div className="flex-1">
-                
-                <h3 className="card-title mb-4">Campañas Publicitarias</h3>
-                <p className="card-text mb-8">Tráfico dirigido mediante algoritmos precisos. Maximizamos el ROI en plataformas clave.</p>
-                <div className="flex gap-4 flex-wrap">
+          <div className="svc-featured" data-aos="fade-up" data-aos-delay="200">
+            <div className="svc-featured-glow"></div>
+            <div className="svc-featured-inner">
+              <div className="svc-featured-body">
+                <h3 className="card-title">Campañas Publicitarias</h3>
+                <p className="card-text">Tráfico dirigido mediante algoritmos precisos. Maximizamos el ROI en plataformas clave.</p>
+                <div className="svc-featured-btns">
                   <button className="btn-primary px-6 py-2 rounded-lg font-label-md">Iniciar Campaña</button>
                   <button className="btn-secondary px-6 py-2 rounded-lg font-label-md border-[#25D366]/40 text-[#25D366]">Consulta WhatsApp</button>
                 </div>
               </div>
-              <div className="w-full md:w-1/2 h-40 rounded-lg bg-black/30 border border-line p-4 relative">
+              <div className="svc-chart">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-xs text-white/50 uppercase tracking-wider font-semibold">CPA Optimizado</span>
                   <span className="text-primary font-bold">-$12.40</span>
@@ -350,17 +350,17 @@ const MainHome = () => {
           </div>
 
           {/* Bottom Row Card */}
-          <div className="bg-panel p-8 rounded-xl border border-line md:col-span-3 flex flex-col md:flex-row items-center justify-between card-hover" data-aos="fade-up" data-aos-delay="300">
-            <div className="flex items-center gap-6 mb-6 md:mb-0">
-              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 shrink-0">
-                <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>architecture</span>
+          <div className="svc-bottom" data-aos="fade-up" data-aos-delay="300">
+            <div className="svc-bottom-left">
+              <div className="svc-bottom-icon">
+                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>architecture</span>
               </div>
-              <div>
-                <h3 className="card-title mb-1">Estrategia Digital</h3>
-                <p className="card-text max-w-xl">Hojas de ruta personalizadas basadas en auditorías profundas.</p>
-                <button className="mt-2 text-[#25D366] font-label-sm flex items-center gap-1">
+              <div className="svc-bottom-body">
+                <h3 className="card-title">Estrategia Digital</h3>
+                <p className="card-text">Hojas de ruta personalizadas basadas en auditorías profundas.</p>
+                <div className="svc-wa-link" style={{marginTop:8}}>
                   <span className="material-symbols-outlined text-xs">chat</span> Contactar experto
-                </button>
+                </div>
               </div>
             </div>
             <button className="btn-secondary px-8 py-3 rounded-lg font-label-md">Solicitar Auditoría</button>
@@ -404,35 +404,44 @@ const MainHome = () => {
       </section>
 
       {/* Methodology Section */}
-      <section className="py-margin-desktop border-t border-line">
-        <h2 className="section-title text-center mb-16" data-aos="fade-up">Metodología <span className="text-primary">Cardinal</span></h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-surface-container p-8 rounded-xl border border-line text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="100">
-            <div className="method-number">1</div>
-            <h4 className="method-title">Análisis</h4>
-            <p className="method-text">Auditoría profunda del mercado y competencia para identificar brechas.</p>
+      <section id="metodo" className="py-margin-desktop border-t border-line scroll-mt-24">
+        <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
+          <span className="eyebrow">Nuestro método</span>
+          <h2 className="section-title">Puro performance.<br/>Cero humo.</h2>
+        </div>
+        <p className="method-quote" data-aos="fade-up">
+          Decisiones basadas en datos reales. No en{' '}
+          <span className="no">especulaciones</span>, no en{' '}
+          <span className="no">audios virales</span>, no en{' '}
+          <span className="no">&quot;a mí me funcionó&quot;</span>.
+        </p>
+        <div className="steps">
+          <div className="step" data-aos="fade-up">
+            <div className="sn">01</div>
+            <h3 className="card-title">Diagnóstico</h3>
+            <p>Auditamos tu situación real: números, competencia, embudo completo. Sin endulzar nada. El plan se construye sobre lo que es, no sobre lo que queremos que sea.</p>
           </div>
-          <div className="bg-surface-container p-8 rounded-xl border border-line text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="200">
-            <div className="method-number">2</div>
-            <h4 className="method-title">Estrategia</h4>
-            <p className="method-text">Diseño de una hoja de ruta táctica omnicanal con KPIs definidos.</p>
+          <div className="step" data-aos="fade-up" data-aos-delay="100">
+            <div className="sn">02</div>
+            <h3 className="card-title">Ejecución</h3>
+            <p>Las estrategias cobran vida con tácticas precisas y medibles. Cada campaña, cada pieza y cada peso invertido tiene un objetivo asignado y un número que lo controla.</p>
           </div>
-          <div className="bg-surface-container p-8 rounded-xl border border-line text-center group hover:border-primary/30 transition-colors" data-aos="fade-up" data-aos-delay="300">
-            <div className="method-number">3</div>
-            <h4 className="method-title">Ejecución</h4>
-            <p className="method-text">Optimización en tiempo real basada en datos para escalar resultados.</p>
+          <div className="step" data-aos="fade-up" data-aos-delay="200">
+            <div className="sn">03</div>
+            <h3 className="card-title">Resultados</h3>
+            <p>Reportes con métricas que importan: costo por lead, ROAS, ventas, retención. Lo que funciona se escala, lo que no funciona se mata. Sin apego, sin ego.</p>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 rounded-2xl bg-gradient-to-br from-panel to-ink relative overflow-hidden flex flex-col items-center text-center px-6" data-aos="fade-up">
-        <div className="absolute inset-0 bg-[radial-gradient(700px_360px_at_50%_0%,rgba(237,28,36,0.14),transparent_60%)]"></div>
-        <div className="relative z-10 max-w-2xl space-y-6">
+      <section className="final-cta" data-aos="fade-up">
+        <div className="final-cta-bg"></div>
+        <div className="final-cta-content">
           <h2 className="section-title">¿Listo para dominar tu mercado?</h2>
           <p className="section-subtitle">Agenda una sesión estratégica gratuita de 30 minutos. Analizaremos tu situación actual y te daremos 3 acciones inmediatas.</p>
           <div className="pt-6">
-            <button className="bg-[#25D366] text-white px-10 py-5 rounded-lg font-label-md text-lg flex items-center justify-center gap-3 mx-auto hover:scale-105 transition-all shadow-[0_10px_30px_-10px_rgba(37,211,102,0.4)]">
+            <button className="final-cta-btn">
               Contactar por WhatsApp
               <span className="material-symbols-outlined">chat</span>
             </button>
@@ -446,8 +455,8 @@ const MainHome = () => {
           <h2 className="section-title">Nuestra <span className="text-primary">Historia</span></h2>
           <p className="section-subtitle">Conocé el equipo y la visión detrás de RevCardinal.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-margin-desktop items-center">
-          <div className="space-y-6" data-aos="fade-right">
+        <div className="history-grid">
+          <div className="history-text" data-aos="fade-right">
             <h3 className="card-title">
               Más de 5 años transformando ideas en <span className="text-gradient-primary">resultados medibles</span>
             </h3>
@@ -457,7 +466,7 @@ const MainHome = () => {
             <p className="card-text">
               Nuestra metodología combina análisis de datos avanzado, creatividad táctica y ejecución precisa. Creemos en las relaciones a largo plazo, en medir cada decisión con KPIs claros y en nunca dejar de iterar. Cada cliente es un socio, cada campaña una oportunidad de superar los límites.
             </p>
-            <div className="flex gap-8 pt-4">
+            <div className="history-stats">
               <div>
                 <span className="stat-number">+200</span>
                 <p className="stat-label">Clientes satisfechos</p>
@@ -473,19 +482,19 @@ const MainHome = () => {
             </div>
           </div>
           <div className="relative" data-aos="fade-left">
-            <div className="relative rounded-xl overflow-hidden border border-line aspect-[4/3]">
-              <div className="absolute inset-0 bg-panel flex items-center justify-center">
-                <span className="material-symbols-outlined text-6xl text-on-surface-variant/30">groups</span>
+            <div className="history-img-box">
+              <div className="history-img-ph">
+                <span className="material-symbols-outlined">groups</span>
               </div>
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-surface-container-high border border-line rounded-xl p-4 shadow-lg hidden md:block" data-aos="fade-up" data-aos-delay="200">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary">trending_up</span>
+            <div className="history-float" data-aos="fade-up" data-aos-delay="200">
+              <div className="history-float-inner">
+                <div className="history-float-icon">
+                  <span className="material-symbols-outlined">trending_up</span>
                 </div>
                 <div>
-                  <p className="text-sm text-white/50 font-medium">Crecimiento promedio</p>
-                  <p className="stat-number">+340% ROAS</p>
+                  <p className="history-float-label">Crecimiento promedio</p>
+                  <p className="history-float-num">+340% ROAS</p>
                 </div>
               </div>
             </div>
@@ -524,12 +533,12 @@ const MainHome = () => {
       {/* Big CTA */}
       <section id="contacto" className="big-cta scroll-mt-24">
         <div className="wrap reveal" data-aos="fade-up">
-          <svg className="bird-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 62 L34 40 L30 22 L46 36 L52 18 L60 36 L84 30 L66 48 L88 56 L62 58 L70 78 L48 62 L26 74 L38 56 Z" fill="#ed1c24"/><circle cx="55" cy="46" r="4" fill="#0a0a0c"/></svg>
+          <img className="logo-contacto" src={logoBlanco} alt="Contacto" />
           <h2 className="display">¿Hablamos de tu marca<br/><span className="red">con números en la mano?</span></h2>
           <p>Un mensaje. Te respondemos en el día con un diagnóstico honesto — gratis y sin compromiso. Si no podemos ayudarte, también te lo decimos.</p>
           <p style={{fontFamily:'JetBrains Mono',fontSize:12,color:'#5e5e6a',marginTop:14,letterSpacing:'.06em'}}>// Somos boutique: tomamos un número limitado de cuentas por mes para no bajar la calidad.</p>
           <a href="#" className="btn btn-wa wa-big-btn" style={{display:'inline-flex',alignItems:'center',gap:10}}>
-            <svg viewBox="0 0 24 24" fill="currentColor" style={{width:24,height:24}}><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" style={{width:24,height:24}}><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3 -.２２．２５－．８６．８４－．８６　２．０５　０　１．２　０．８８　２．３７　１　２．５３．１２．１６　１．７３　２．６４　４．２　３．７．５９．２６　１．０５．４１　１．４．５２．６．１９　１．１３．１６　１．５６．１　１．４７－．０７　１．４７－．６　１．６７－１．１８．２１－０．５８．２１－１．０７．１５－１．１８－０．０６－０．１－０．２２－０．１６－０．４７－０．２８Ｚ"/></svg>
             Escribinos por WhatsApp
           </a>
         </div>
