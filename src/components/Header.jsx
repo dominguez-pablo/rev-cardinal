@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import "../css/header.css";
 import RevCardinalLogo from '../img/RevCardinal.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,7 +52,7 @@ const Header = () => {
           <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
             <div className="header-nav-bg" onClick={closeMenu}></div>
             <div className="header-nav-panel">
-              <a href="#servicios" onClick={closeMenu}>Servicios</a>
+              <Link to="/servicios" onClick={closeMenu}>Servicios</Link>
               <a href="#proyectos" onClick={closeMenu}>Proyectos</a>
               <a href="#nuestra-historia" onClick={(e) => scrollToSection(e, 'nuestra-historia')}>Nosotros</a>
               <a href="#contacto" className="btn-contact-mobile" onClick={(e) => scrollToSection(e, 'contacto')}>Contacto</a>
