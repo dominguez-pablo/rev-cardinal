@@ -162,7 +162,7 @@ const MainServicios = () => {
                 <span className="red">Mide</span>
               </h1>
               <h1 className="sv-hero-title" style={{marginTop: '.2em'}}>
-                Decisiones con<br />
+                Decisiones que se toman con<br />
                 <span className="red">Datos</span>
               </h1>
             </div>
