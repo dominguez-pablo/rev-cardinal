@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../css/servicios.css';
 
 const serviciosData = [
@@ -103,53 +103,50 @@ const workSteps = [
   { num: '04', title: 'Análisis y optimización', text: 'Medimos los resultados, leemos los datos y ajustamos para mejorar de forma continua.' },
 ];
 
-const AccordionItem = ({ item }) => {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className={`sv-acc-item${open ? ' open' : ''}`} onClick={() => setOpen(!open)}>
-      <div className="sv-acc-header">
-        <div className="sv-acc-left">
-          <span className="sv-acc-dash">—</span>
-          <h4 className="sv-acc-title">{item.title}</h4>
-        </div>
-        <span className="sv-acc-icon">{open ? '−' : '+'}</span>
+const AccordionItem = ({ item }) => (
+  <div className="sv-acc-item">
+    <div className="sv-acc-header">
+      <div className="sv-acc-left">
+        <span className="sv-acc-dash">—</span>
+        <h4 className="sv-acc-title">{item.title}</h4>
       </div>
-      <div className="sv-acc-expand">
-        <div className="sv-acc-inner">
-          <div className="sv-acc-body">
-            <div>
-              <p className="sv-acc-desc">{item.desc}</p>
-              <div className="sv-acc-highlight">
-                <p>{item.highlight}</p>
-              </div>
+      <span className="sv-acc-icon">+</span>
+    </div>
+    <div className="sv-acc-expand">
+      <div className="sv-acc-inner">
+        <div className="sv-acc-body">
+          <div>
+            <p className="sv-acc-desc">{item.desc}</p>
+            <div className="sv-acc-highlight">
+              <p>{item.highlight}</p>
             </div>
-            {item.list && (
-              <ul className="sv-acc-list">
-                {item.list.map((li, i) => (
+          </div>
+          {item.list && (
+            <ul className="sv-acc-list">
+              {item.list.map((li, i) => (
+                <li key={i}>
+                  <span className="material-symbols-outlined">check_circle</span> {li}
+                </li>
+              ))}
+            </ul>
+          )}
+          {item.platforms && (
+            <div className="sv-acc-platforms">
+              <h5>Plataformas</h5>
+              <ul>
+                {item.platforms.map((p, i) => (
                   <li key={i}>
-                    <span className="material-symbols-outlined">check_circle</span> {li}
+                    <span className="material-symbols-outlined">arrow_right</span> {p}
                   </li>
                 ))}
               </ul>
-            )}
-            {item.platforms && (
-              <div className="sv-acc-platforms">
-                <h5>Plataformas</h5>
-                <ul>
-                  {item.platforms.map((p, i) => (
-                    <li key={i}>
-                      <span className="material-symbols-outlined">arrow_right</span> {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 const MainServicios = () => {
   return (
@@ -158,7 +155,7 @@ const MainServicios = () => {
       <section className="sv-hero px-gutter-desktop">
         <div className="sv-hero-bg"></div>
         <div className="max-w-[max-width] mx-auto w-full relative z-10 grid md:grid-cols-2 gap-xl items-center">
-          <div className="space-y-lg">
+          <div className="space-y-lg sv-hero-content">
             <div className="sv-hero-dash">
               <h1 className="sv-hero-title">
                 Performance que se<br />
@@ -169,10 +166,10 @@ const MainServicios = () => {
                 <span className="red">Datos</span>
               </h1>
             </div>
-            <p className="sv-hero-desc max-w-lg">
+            <p className="sv-hero-desc">
               Somos una agencia integral de marketing y producción. Convertimos cada acción en resultados medibles y cada decisión en una elección respaldada por datos —no por intuición. Estrategia, contenido, tecnología y pauta bajo un mismo techo.
             </p>
-            <div className="flex gap-md pt-md">
+            <div className="flex gap-md">
               <a href="#servicios-list" className="btn-primary px-xl py-md font-label-md rounded-lg flex items-center gap-sm">
                 Explorar Servicios
                 <span className="material-symbols-outlined">arrow_downward</span>
@@ -197,12 +194,16 @@ const MainServicios = () => {
         <blockquote className="sv-quote">
           &quot;No hacemos marketing para 'estar presentes'. Hacemos marketing para crecer, y lo demostramos con números.&quot;
         </blockquote>
+        <p className="sv-quote-desc">
+          Todo lo que ejecutamos —una campaña, una pieza, una web, una acción comercial— se mide, se analiza y se optimiza. Leemos los datos para entender qué funciona, qué no y por qué, y ajustamos el rumbo en consecuencia. Esa es nuestra forma de trabajar y nuestra mayor diferencia: cada peso invertido tiene que justificar su retorno. Performance real, decisiones con fundamento y mejora continua. Eso es lo que nos define.
+        </p>
+        <div className="sv-quote-divider"></div>
       </section>
 
       {/* ── Services Accordion ── */}
       <section id="servicios-list" className="py-xl px-gutter-desktop max-w-[max-width] mx-auto">
         {serviciosData.map((group, gi) => (
-          <div key={gi} className={gi > 0 ? 'mt-xl pt-xl' : ''}>
+          <div key={gi} className="sv-cat-group">
             <div className="sv-cat-header">
               <h3 className="sv-cat-title">{group.category}</h3>
               <div className="sv-cat-bar"></div>
@@ -217,7 +218,7 @@ const MainServicios = () => {
       </section>
 
       {/* ── Cómo Trabajamos + Por Qué ── */}
-      <section className="sv-work py-xl">
+      <section className="sv-work sv-work-section">
         <div className="max-w-[max-width] mx-auto px-gutter-desktop">
           <div className="grid md:grid-cols-2 gap-xl">
             {/* Cómo trabajamos */}
@@ -236,18 +237,20 @@ const MainServicios = () => {
               </div>
             </div>
             {/* Por qué RevCardinal */}
-            <div className="sv-why-card">
-              <h2 className="sv-work-title">Por qué RevCardinal</h2>
-              <div>
-                {whyItems.map((wi, i) => (
-                  <div key={i} className="sv-why-item">
-                    <span className="material-symbols-outlined">{wi.icon}</span>
-                    <div>
-                      <strong>{wi.title}</strong>
-                      <span>{wi.text}</span>
+            <div className="sv-work-right">
+              <div className="sv-why-card">
+                <h2 className="sv-work-title">Por qué RevCardinal</h2>
+                <div>
+                  {whyItems.map((wi, i) => (
+                    <div key={i} className="sv-why-item">
+                      <span className="material-symbols-outlined">{wi.icon}</span>
+                      <div>
+                        <strong>{wi.title}</strong>
+                        <span>{wi.text}</span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
