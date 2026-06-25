@@ -1,6 +1,18 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
+  /* Esto evita que CUALQUIER elemento ensanche la pantalla en móviles */
+}
+
+#root {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
 @layer base {
   :root {
     --ink: #0a0a0c;
