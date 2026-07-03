@@ -197,7 +197,7 @@ const MainServicios = () => {
         <p className="sv-quote-desc">
           Todo lo que ejecutamos —una campaña, una pieza, una web, una acción comercial— se mide, se analiza y se optimiza. Leemos los datos para entender qué funciona, qué no y por qué, y ajustamos el rumbo en consecuencia. Esa es nuestra forma de trabajar y nuestra mayor diferencia: cada peso invertido tiene que justificar su retorno. Performance real, decisiones con fundamento y mejora continua. Eso es lo que nos define.
         </p>
-        <div className="sv-quote-divider"></div>
+        
       </section>
 
       {/* ── Services Accordion ── */}
