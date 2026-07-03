@@ -17,16 +17,21 @@
 /* ── Inner bar ── */
 .header-inner {
   max-width: 1140px;
-  width: 100%; /* Forza a respetar el ancho máximo */
-  box-sizing: border-box; /* Absorbe el padding hacia adentro */
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 0 28px;
   height: 68px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   position: relative;
   z-index: 3;
+}
+.header-inner::before,
+.header-inner::after {
+  content: '';
+  flex-grow: 0;
+  transition: flex-grow .6s cubic-bezier(.4,0,.2,1);
 }
 
 /* ── Brand ── */
@@ -76,6 +81,9 @@
   display: flex;
   align-items: center;
   gap: 28px;
+  margin-left: auto;
+  max-width: 600px;
+  overflow: hidden;
 }
 
 /* ── Hamburger ── */
@@ -89,6 +97,7 @@
   background: none; border: none;
   cursor: pointer;
   padding: 0;
+  margin-left: auto;
   position: relative; z-index: 10;
   -webkit-tap-highlight-color: transparent;
 }
@@ -187,13 +196,23 @@
 
   .site-header.scrolled .header-inner { height: 56px; }
 
+  .site-header.scrolled .header-inner::before,
+  .site-header.scrolled .header-inner::after { flex-grow: 1; }
+
   .site-header.scrolled .header-right-desktop {
+    max-width: 0;
+    overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .35s ease;
+    transition: max-width .55s cubic-bezier(.4,0,.2,1),
+                opacity .35s ease;
   }
 
+  .site-header.scrolled:hover .header-inner::before,
+  .site-header.scrolled:hover .header-inner::after { flex-grow: 0; }
+
   .site-header.scrolled:hover .header-right-desktop {
+    max-width: 600px;
     opacity: 1;
     pointer-events: auto;
   }

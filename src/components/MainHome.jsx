@@ -225,7 +225,7 @@ const MainHome = () => {
 
       {/* Proof Strip */}
       <div className="proof-strip">
-        <div className="proof-tag">// Resultados de cuentas reales — no proyecciones</div>
+        <div className="proof-tag">Resultados de cuentas reales — no proyecciones</div>
         <div className="proof-grid">
           <div className="proof-cell"><div className="proof-num">7,46<b>×</b></div><div className="proof-label">ROAS en campañas full-funnel de performance</div></div>
           <div className="proof-cell"><div className="proof-num"><b>$</b>1,40</div><div className="proof-label">costo por conversación en campañas de leads</div></div>
@@ -248,7 +248,7 @@ const MainHome = () => {
           <div className="ar-cell"><div className="ar-num red">61%</div><div className="ar-text">de los nuevos compradores online son del interior del país. El crecimiento ya no pasa solo por Buenos Aires: pasa por acá.</div></div>
           <div className="ar-cell"><div className="ar-num">47%</div><div className="ar-text">de los argentinos ya compra en plataformas del exterior (Temu, Shein). Contra el precio chino no se compite con precio: se compite con marca y comunidad.</div></div>
         </div>
-        <p className="ar-note">// Fuentes: CACE &amp; Kantar, Estudio Anual de Comercio Electrónico 2025.</p>
+        <p className="ar-note">Fuentes: CACE &amp; Kantar, Estudio Anual de Comercio Electrónico 2025.</p>
 
         <div className="ar-conclusion" data-aos="fade-up">
           <p><strong>Traducción:</strong> la oportunidad es enorme y la ventana está abierta. Pero la mayoría de las marcas invierte en pauta sin tener el circuito comercial preparado — y ahí es donde se pierde la plata.</p>
@@ -307,8 +307,33 @@ const MainHome = () => {
           <h2 className="section-title">Arquitectura de <span className="text-primary">Crecimiento</span></h2>
           <p className="section-subtitle">Soluciones integrales diseñadas para maximizar el retorno de inversión.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1 */}
+
+        {/* Featured — Campañas Publicitarias (full width) */}
+        <div className="svc-featured" data-aos="fade-up">
+          <div className="svc-featured-glow"></div>
+          <div className="svc-featured-inner">
+            <div className="svc-featured-body">
+              <h3 className="card-title">Campañas Publicitarias</h3>
+              <p className="card-text">Tráfico dirigido mediante algoritmos precisos. Maximizamos el ROI en plataformas clave.</p>
+              <div className="svc-featured-btns">
+                <button className="btn-primary px-6 py-2 rounded-lg font-label-md">Iniciar Campaña</button>
+                <button className="btn-secondary px-6 py-2 rounded-lg font-label-md border-[#25D366]/40 text-[#25D366]">Consulta WhatsApp</button>
+              </div>
+            </div>
+            <div className="svc-chart">
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-xs text-white/50 uppercase tracking-wider font-semibold">CPA Optimizado</span>
+                <span className="text-primary font-bold">-$12.40</span>
+              </div>
+              <svg className="w-full h-full" viewBox="0 0 100 40">
+                <path d="M0,40 L20,30 L40,35 L60,10 L80,20 L100,5" fill="none" stroke="#ff1f1f" strokeWidth="2"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Two-column row: Diseño Web + Estrategia Digital */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-margin-desktop svc-two-col">
           <div className="svc-card" data-aos="fade-up" data-aos-delay="100">
             <div className="svc-icon-circle">
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>web</span>
@@ -325,45 +350,17 @@ const MainHome = () => {
             </div>
           </div>
 
-          {/* Featured Card */}
-          <div className="svc-featured" data-aos="fade-up" data-aos-delay="200">
-            <div className="svc-featured-glow"></div>
-            <div className="svc-featured-inner">
-              <div className="svc-featured-body">
-                <h3 className="card-title">Campañas Publicitarias</h3>
-                <p className="card-text">Tráfico dirigido mediante algoritmos precisos. Maximizamos el ROI en plataformas clave.</p>
-                <div className="svc-featured-btns">
-                  <button className="btn-primary px-6 py-2 rounded-lg font-label-md">Iniciar Campaña</button>
-                  <button className="btn-secondary px-6 py-2 rounded-lg font-label-md border-[#25D366]/40 text-[#25D366]">Consulta WhatsApp</button>
-                </div>
-              </div>
-              <div className="svc-chart">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs text-white/50 uppercase tracking-wider font-semibold">CPA Optimizado</span>
-                  <span className="text-primary font-bold">-$12.40</span>
-                </div>
-                <svg className="w-full h-full" viewBox="0 0 100 40">
-                  <path d="M0,40 L20,30 L40,35 L60,10 L80,20 L100,5" fill="none" stroke="#ff1f1f" strokeWidth="2"></path>
-                </svg>
+          <div className="svc-card" data-aos="fade-up" data-aos-delay="200">
+            <div className="svc-bottom-icon" style={{marginBottom:24}}>
+              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1", fontSize:28, color:'var(--red)' }}>architecture</span>
+            </div>
+            <h3 className="card-title">Estrategia Digital</h3>
+            <p className="card-text">Hojas de ruta personalizadas basadas en auditorías profundas.</p>
+            <div className="svc-card-links">
+              <div className="svc-wa-link">
+                <span className="material-symbols-outlined text-sm">chat</span> Contactar experto
               </div>
             </div>
-          </div>
-
-          {/* Bottom Row Card */}
-          <div className="svc-bottom" data-aos="fade-up" data-aos-delay="300">
-            <div className="svc-bottom-left">
-              <div className="svc-bottom-icon">
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>architecture</span>
-              </div>
-              <div className="svc-bottom-body">
-                <h3 className="card-title">Estrategia Digital</h3>
-                <p className="card-text">Hojas de ruta personalizadas basadas en auditorías profundas.</p>
-                <div className="svc-wa-link" style={{marginTop:8}}>
-                  <span className="material-symbols-outlined text-xs">chat</span> Contactar experto
-                </div>
-              </div>
-            </div>
-            <button className="btn-secondary px-8 py-3 rounded-lg font-label-md">Solicitar Auditoría</button>
           </div>
         </div>
       </section>
@@ -536,9 +533,9 @@ const MainHome = () => {
           <img className="logo-contacto" src={logoBlanco} alt="Contacto" />
           <h2 className="display">¿Hablamos de tu marca<br/><span className="red">con números en la mano?</span></h2>
           <p>Un mensaje. Te respondemos en el día con un diagnóstico honesto — gratis y sin compromiso. Si no podemos ayudarte, también te lo decimos.</p>
-          <p style={{fontFamily:'JetBrains Mono',fontSize:12,color:'#5e5e6a',marginTop:14,letterSpacing:'.06em'}}>// Somos boutique: tomamos un número limitado de cuentas por mes para no bajar la calidad.</p>
-          <a href="#" className="btn btn-wa wa-big-btn" style={{display:'inline-flex',alignItems:'center',gap:10}}>
-            <svg viewBox="0 0 24 24" fill="currentColor" style={{width:24,height:24}}><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3 -.２２．２５－．８６．８４－．８６　２．０５　０　１．２　０．８８　２．３７　１　２．５３．１２．１６　１．７３　２．６４　４．２　３．７．５９．２６　１．０５．４１　１．４．５２．６．１９　１．１３．１６　１．５６．１　１．４７－．０７　１．４７－．６　１．６７－１．１８．２１－０．５８．２１－１．０７．１５－１．１８－０．０６－０．１－０．２２－０．１６－０．４７－０．２８Ｚ"/></svg>
+          <p style={{fontFamily:'JetBrains Mono',fontSize:12,color:'#5e5e6a',marginTop:14,letterSpacing:'.06em'}}>Somos boutique: tomamos un número limitado de cuentas por mes para no bajar la calidad.</p>
+           <a href="#" className="btn btn-wa wa-big-btn" style={{display:'inline-flex',alignItems:'center',gap:10}}>
+            <svg viewBox="0 0 24 24" fill="currentColor" style={{width:24,height:24}}><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
             Escribinos por WhatsApp
           </a>
         </div>
