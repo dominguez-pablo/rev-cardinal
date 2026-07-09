@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/servicios.css';
+import decisiones from "../img/decisiones2.png"
 
 const serviciosData = [
   {
@@ -182,7 +183,7 @@ const MainServicios = () => {
               <img
                 alt="Dashboard Digital"
                 className="w-full h-auto rounded opacity-90"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbr_D6EySe08gOZM8b2NO7xDx_JPVmCuIfmh52A2BkYAWyflXwyF5De9uUaNs62QoLJ5Ny5nwQtRSY95ZepRw1U6bGSK1Z_KPzz4q6izlg-9f8n7m89qIffMxjLfJhvbEH48t3cEKJfslXiORF-6_ZI2L5dzlSb6q_Yy_YsZjRjKBEq1D8k6nfUTcbU0sXMIu2vSnKAc1X7bEuFz4IP91MKxXOkJye0SjmWVnPBySrcDNeWukMTsgTcgiAk-VV43vcEwH3JL8vZg"
+                src={decisiones}
               />
             </div>
           </div>

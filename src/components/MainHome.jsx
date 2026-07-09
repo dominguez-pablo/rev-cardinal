@@ -22,6 +22,14 @@ import estadisticaVideo from '../videos/estadistica.mp4';
 import marketingVideo from '../videos/marketing.mp4';
 import LogotipoCompletoBlanco from '../img/Logotipo completo blanco.png';
 import logoBlanco from '../img/Ícono Blanco fondo transparente.png';
+import carrousel1 from '../img/carrousel1.png';
+import carrousel2 from '../img/carrousel2.png';
+import carrousel3 from '../img/carrousel3.png';
+import impactoVisual1 from '../img/1planning.png';
+import impactoVisual2 from '../img/2content_production.png';
+import impactoVisual3 from '../img/3social_media_design.png';
+import impactoVisual4 from '../img/4PaidMediaAds_results.png';
+import resultadosMedibles from '../img/resultadosMedibles1.png';
 
 const carouselImages = [
   miniBerlin,
@@ -108,9 +116,9 @@ const MainHome = () => {
         <div ref={carouselRef} onScroll={handleScroll} className="flex overflow-x-auto snap-x snap-mandatory h-full hide-scrollbar scroll-smooth w-full" id="hero-carousel">
           {/* Slide 1 - Video RevCardinal */}
           <div className="hero-slide">
-            <video
+            <img
               className="absolute inset-0 w-full h-full object-cover"
-              src={cardenalVideo}
+              src={carrousel1}
               autoPlay
               muted
               loop
@@ -135,9 +143,9 @@ const MainHome = () => {
           
           {/* Slide 2 */}
           <div className="hero-slide">
-            <video
+            <img
               className="absolute inset-0 w-full h-full object-cover"
-              src={marketingVideo}
+              src={carrousel2}
               autoPlay
               muted
               loop
@@ -169,9 +177,9 @@ const MainHome = () => {
           
           {/* Slide 3 */}
           <div className="hero-slide">
-            <video
+            <img
               className="absolute inset-0 w-full h-full object-cover"
-              src={estadisticaVideo}
+              src={carrousel3}
               autoPlay
               muted
               loop
@@ -365,6 +373,20 @@ const MainHome = () => {
         </div>
       </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {/* Visual Impact Bento Gallery */}
       <section className="py-margin-desktop">
         <div className="text-center mb-margin-desktop space-y-4" data-aos="fade-up">
@@ -373,29 +395,26 @@ const MainHome = () => {
         </div>
         <div className="gallery-fullwidth grid grid-cols-2 md:grid-cols-4 gap-0 md:h-[500px] overflow-hidden border-y border-line">
           <div className="gallery-item" data-aos="fade-up" data-aos-delay="100">
-            <img alt="Tour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZEu3mLT9jU5-5NUOAoVqZl2hVoXE9y-QIu9YdQ8ZNG_0-jFRSCfv7vYqAW0YH8z5-IT4q977Uw5qWw2oF08AUWRBK0hMAj_cnDwgK0X5OhUh2AEcWLT1BIxuBYcp0c7rWD2530drfqBrMl-5EDm1SJkPlMcGfqs4PyJrtSFLokkAmdJdLPahkaYR5U4rN2-T2LlEGi0L2mgEQcrHRJoqygyngTZLMamesJfK6IE62-oiEWYVfjUl2Rz57h024Pyad26Jqs-37FREY" />
+            <img alt="Tour" src={impactoVisual1} />
             <div className="gallery-overlay"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="gallery-play-btn">
-                <span className="material-symbols-outlined text-white text-3xl">play_arrow</span>
-              </div>
             </div>
-            <span className="gallery-label-tag">Tour Virtual</span>
+            <span className="gallery-label">Planning</span>
           </div>
           <div className="gallery-item" data-aos="fade-up" data-aos-delay="150">
-            <img alt="Design" src="https://lh3.googleusercontent.com/aida/AP1WRLtqtmuxkUeS-HphtxcuNaph3poDWcuvsZVKdEkodNSxCVzCd6mtsSpvqIKbsz6ptiPT6_WbyrVgA1BM7RRX5TjOodOJr9QK2wETcfQwm-UBc9qxq45TkfjLHO0saUUS4oD2chfh1t7D5fB-vriC8C-CBzmztdFtfczb7mpBvYLKW41TXb2LX2GwTXR5bDSFVpQsxQtVo7pGTNB_2XG3td-60UUyAVyzOHLC2lQZ3xh_EWMs81s9HUcIGGc" />
+            <img alt="Design" src={impactoVisual2} />
             <div className="gallery-overlay"></div>
-            <span className="gallery-label">Diseño Estratégico</span>
+            <span className="gallery-label">Content Production</span>
           </div>
           <div className="gallery-item" data-aos="fade-up" data-aos-delay="200">
-            <img alt="Mapping" src="https://lh3.googleusercontent.com/aida/AP1WRLu_MAD0BrE2DC5TKAasDH7-Sxazsp14wYC88D4rmdL56MbxUczWA3nQUXtZClpZM3LEcd4JWgw_teEzb4CpfFgBp6x1b02vh2B-wjo0gNBPkzlPV9uB-Y8k3S0_Kh0FMZhnjlwF4woUkD8-P9-R94AEnr1asaRBYLbURP5p8EURqfh20Bo-DHBuBKT7zByu2m8NbLnjSApTsultPv7NcjbW1xaMn9C8xlE3KvJslwDNl4F7MJHKI6jamHb9" />
+            <img alt="Mapping" src={impactoVisual3} />
             <div className="gallery-overlay"></div>
-            <span className="gallery-label">Mapping</span>
+            <span className="gallery-label">Social Media Design</span>
           </div>
           <div className="gallery-item" data-aos="fade-up" data-aos-delay="250">
-            <img alt="Conversion" src="https://lh3.googleusercontent.com/aida/AP1WRLuZbgjZ19fwGaqPwCxuRYckSejsiKzSK6Jge4AkwW9JkgKoGQ1ofl7yvdC_E4mGUDh9Mp2X3JwHqrvmClN1E8Iw521loFKY_jLCEYYW-Co-hg281HrCmRaCrLczz0HfG5TYScZWohFignoR2LCAxfSGES0r1BtC9EiQDWjHNYAX7U85h3YtlOeXTCjKyfpwV_qTAvWRhAIlz_cDO58LlP034h5b5fywrAGaaDmMn4dMuhhr93syqqokqgo0" />
+            <img alt="Conversion" src={impactoVisual4} />
             <div className="gallery-overlay"></div>
-            <span className="gallery-label">Conversion</span>
+            <span className="gallery-label">Paid Media Advertising</span>
           </div>
         </div>
       </section>
@@ -481,7 +500,7 @@ const MainHome = () => {
           <div className="relative" data-aos="fade-left">
             <div className="history-img-box">
               <div className="history-img-ph">
-                <span className="material-symbols-outlined">groups</span>
+                <img src={resultadosMedibles} alt="Resultados Medibles" />
               </div>
             </div>
             <div className="history-float" data-aos="fade-up" data-aos-delay="200">
