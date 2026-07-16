@@ -81,9 +81,29 @@
 
 .footer-col ul li a:hover { color: #f3f1ee; }
 
-.footer-whatsapp { color: #3fd07e !important; }
-.footer-whatsapp:hover { color: #4ae68a !important; }
-.footer-whatsapp .material-symbols-outlined { font-size: 18px; }
+.footer-whatsapp {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  background: #25d366 !important;
+  color: #06250f !important;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.footer-whatsapp:hover {
+  color: #06250f !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.footer-whatsapp .material-symbols-outlined {
+  font-size: 18px;
+  color: #06250f;
+}
 
 /* ── Bottom bar ── */
 .footer-bottom {

@@ -27,14 +27,18 @@ html, body {
     --signal: #4f7cff;
     --good: #3fd07e;
     --wa: #25d366;
+    --gutter: clamp(24px, 5vw, 60px);
+    --margin: clamp(48px, 6vw, 80px);
+    --section-y: clamp(64px, 8vw, 96px);
+    --content-max: 1100px;
   }
 
   body {
     background: var(--ink);
     color: var(--bone);
     font-family: 'Hanken Grotesk', system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -54,28 +58,18 @@ html, body {
 
   .display {
     font-family: 'Saira Condensed', sans-serif;
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
-    line-height: 0.9;
-    letter-spacing: -0.012em;
+    line-height: 1;
+    letter-spacing: -0.01em;
   }
 
-  .eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--red);
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .eyebrow::before {
-    content: "";
-    width: 26px;
-    height: 2px;
-    background: var(--red);
+  .content-wrap {
+    max-width: var(--content-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
   }
 
   .btn-primary {
@@ -126,28 +120,6 @@ html, body {
     color: var(--bone);
   }
 
-  .btn-wa {
-    font-family: 'Saira Condensed', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    font-size: 1.05rem;
-    background: var(--wa);
-    color: #06250f;
-    padding: 14px 30px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    border: none;
-  }
-
-  .btn-wa:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 38px rgba(37, 211, 102, 0.4);
-  }
 
   .lead {
     font-size: clamp(1.05rem, 2.2vw, 1.3rem);
@@ -176,5 +148,142 @@ html, body {
     text-decoration-color: var(--red);
     text-decoration-thickness: 3px;
   }
+}
+
+/* Eyebrow — fuera de @layer para ganar sobre utilidades Tailwind heredadas */
+.eyebrow {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  line-height: 1.2;
+  text-shadow: 0 0 32px rgba(237, 28, 36, 0.55);
+  animation:
+    eyebrow-enter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both,
+    eyebrow-glitch 6s ease-in-out 0.75s infinite;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  display: block;
+  width: clamp(28px, 5vw, 48px);
+  height: 2px;
+  background: var(--red);
+  box-shadow: 0 0 12px rgba(237, 28, 36, 0.65);
+  flex-shrink: 0;
+  animation: eyebrow-line-pulse 2.2s ease-in-out infinite;
+}
+
+.eyebrow::after {
+  animation-delay: 1.1s;
+}
+
+@keyframes eyebrow-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    letter-spacing: 0.32em;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.14em;
+    filter: blur(0);
+  }
+}
+
+@keyframes eyebrow-line-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scaleX(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+    box-shadow: 0 0 16px rgba(237, 28, 36, 0.9);
+  }
+}
+
+@keyframes eyebrow-glitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+    text-shadow: 0 0 32px rgba(237, 28, 36, 0.55);
+  }
+  91% {
+    transform: translate(-2px, 0);
+    text-shadow: 2px 0 var(--red-soft), -2px 0 var(--signal);
+  }
+  92% {
+    transform: translate(2px, 0);
+    text-shadow: -2px 0 var(--red-soft), 2px 0 var(--signal);
+  }
+  93% {
+    transform: translate(0);
+    text-shadow: 0 0 32px rgba(237, 28, 36, 0.55);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow {
+    animation: none;
+    text-shadow: none;
+  }
+
+  .eyebrow::before,
+  .eyebrow::after {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* WhatsApp buttons — fuera de @layer para máxima visibilidad */
+.btn-wa,
+.btn-wa-header {
+  font-family: 'Saira Condensed', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.05rem;
+  background: var(--wa);
+  color: #06250f;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-wa-header {
+  font-size: 15px;
+  padding: 13px 24px;
+}
+
+.btn-wa:hover,
+.btn-wa-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 38px rgba(37, 211, 102, 0.45);
+  color: #06250f;
+  background: var(--wa);
+}
+
+.wa-svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #06250f;
 }
 
