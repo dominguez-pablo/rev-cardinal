@@ -506,6 +506,8 @@
 .marquee-track img {
   height: 46px;
   width: auto;
+  max-width: none;
+  object-fit: contain;
   mix-blend-mode: screen;
   opacity: 0.85;
   filter: grayscale(8%);
@@ -516,8 +518,24 @@
   opacity: 1;
 }
 
-.marquee-track img.tall {
+/* Más alto = compensa PNGs con mucho margen transparente (Upwise, MINI, etc.) */
+/* Logos que se ven grandes al tamaño base */
+.marquee-track img.marquee-logo--sm {
+  height: 38px;
+}
+
+.marquee-track img.marquee-logo--lg {
   height: 58px;
+}
+
+.marquee-track img.marquee-logo--xl {
+  height: 96px;
+}
+
+/* Logos horizontales muy anchos (p. ej. BMW Motorrad + texto) */
+.marquee-track img.marquee-logo--wide {
+  height: 42px;
+  max-width: min(168px, 22vw);
 }
 
 .track-mask {

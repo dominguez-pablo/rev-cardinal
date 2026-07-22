@@ -2,13 +2,8 @@ import React, { useRef } from 'react';
 import '../css/nosotros.css';
 import NosStoryBackdrop from './NosStoryBackdrop';
 import logoBlanco from '../img/Ícono Blanco fondo transparente.png';
-import { homeHash } from '../constants/links';
-
-const WA_ICON = (
-  <svg viewBox="0 0 24 24" fill="currentColor" className="wa-svg">
-    <path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.2-1.36A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.09.8.83-3-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.47-.72-1.7-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.65.3-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.53.12.16 1.73 2.64 4.2 3.7.59.26 1.05.41 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z" />
-  </svg>
-);
+import { WHATSAPP_URL } from '../constants/links';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const setSpotlight = (e, name) => {
   const el = e.currentTarget;
@@ -115,8 +110,8 @@ const MainNosotros = () => {
           <h2 className="display">¿Hablamos de tu marca<br /><span className="red">con números en la mano?</span></h2>
           <p>Un mensaje. Te respondemos en el día con un diagnóstico honesto — gratis y sin compromiso.</p>
           <p className="big-cta-note">Somos boutique: tomamos un número limitado de cuentas por mes.</p>
-          <a href={homeHash('contacto')} className="btn-wa wa-big-btn">
-            {WA_ICON}
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-wa wa-big-btn">
+            <WhatsAppIcon />
             Escribinos por WhatsApp
           </a>
         </div>

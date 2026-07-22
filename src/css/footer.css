@@ -100,8 +100,9 @@
   box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
 }
 
-.footer-whatsapp .material-symbols-outlined {
-  font-size: 18px;
+.footer-whatsapp .wa-svg {
+  width: 18px;
+  height: 18px;
   color: #06250f;
 }
 
@@ -186,6 +187,11 @@
 
 .whatsapp-float:hover {
   transform: scale(1.08);
+}
+
+.whatsapp-float-icon {
+  color: #fff;
+  flex-shrink: 0;
 }
 
 @keyframes wa-pulse {
