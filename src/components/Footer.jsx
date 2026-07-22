@@ -22,8 +22,7 @@ const Footer = () => {
             <h5>Enlaces</h5>
             <ul>
               <li><Link to="/servicios">Servicios</Link></li>
-              <li><a href={homeHash('trabajo')}>Trabajo</a></li>
-              <li><a href={homeHash('nuestra-historia')}>Nosotros</a></li>
+              <li><Link to="/nosotros">Nosotros</Link></li>
               <li><a href={homeHash('contacto')}>Contacto</a></li>
             </ul>
           </div>
@@ -43,7 +42,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2025 RevCardinal. Todos los derechos reservados.</p>
+          <p>© 2026 RevCardinal. Todos los derechos reservados.</p>
           <div className="footer-bottom-links">
             <a href={homeHash('contacto')}>Contacto</a>
           </div>

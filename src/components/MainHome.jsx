@@ -27,7 +27,6 @@ import impactoVisual1 from '../img/1planning.png';
 import impactoVisual2 from '../img/2content_production.png';
 import impactoVisual3 from '../img/3social_media_design.png';
 import impactoVisual4 from '../img/4PaidMediaAds_results.png';
-import resultadosMedibles from '../img/resultadosMedibles1.png';
 import { homeHash } from '../constants/links';
 
 const carouselImages = [
@@ -73,7 +72,7 @@ const faqItems = [
   },
   {
     question: '¿Qué los diferencia de otra agencia?',
-    answer: 'No gestionamos anuncios sueltos: armamos el circuito comercial completo — pauta + WhatsApp automatizado + CRM + reporting. Todo se mide con los números que importan.',
+    answer: 'Somos una agencia con cupo limitado de clientes, estudiamos desde el fondo el cliente potencial de cada producto o servicio y transmitimos emociones que llevan a resultados.',
     highlight: 'circuito comercial completo',
   },
   {
@@ -81,6 +80,15 @@ const faqItems = [
     answer: 'Un mensaje de WhatsApp. Te hacemos un diagnóstico honesto y gratuito de tu presencia digital. Si no podemos ayudarte, también te lo decimos.',
   },
 ];
+
+const CAROUSEL_INTERVAL_MS = 7000;
+
+const ServiciosPeekLink = () => (
+  <Link to="/servicios" className="svc-list-link" aria-label="Ver servicios">
+    <span className="material-symbols-outlined svc-list-link-eye" aria-hidden="true">visibility</span>
+    <span className="material-symbols-outlined svc-list-link-arrow" aria-hidden="true">arrow_forward</span>
+  </Link>
+);
 
 const setSpotlight = (e, name) => {
   const el = e.currentTarget;
@@ -103,12 +111,7 @@ const FaqItem = ({ question, answer, highlight }) => {
   };
 
   return (
-    <details
-      className="faq-item"
-      onMouseMove={(e) => setSpotlight(e, 'faq')}
-      onMouseEnter={(e) => e.currentTarget.style.setProperty('--faq-glow', '1')}
-      onMouseLeave={(e) => e.currentTarget.style.setProperty('--faq-glow', '0')}
-    >
+    <details className="faq-item">
       <summary>{question}</summary>
       <div className="faq-answer-wrap">
         <div className="faq-answer">{renderAnswer()}</div>
@@ -150,11 +153,11 @@ const MainHome = () => {
 
   const resumeAutoScroll = () => {
     pauseAutoScroll();
-    intervalRef.current = setInterval(goNext, 5000);
+    intervalRef.current = setInterval(goNext, CAROUSEL_INTERVAL_MS);
   };
 
   useEffect(() => {
-    intervalRef.current = setInterval(goNext, 5000);
+    intervalRef.current = setInterval(goNext, CAROUSEL_INTERVAL_MS);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
@@ -166,7 +169,7 @@ const MainHome = () => {
       carouselRef.current.scrollTo({ left: width * index, behavior: 'smooth' });
       setActiveSlide(index);
       pauseAutoScroll();
-      intervalRef.current = setInterval(goNext, 5000);
+      intervalRef.current = setInterval(goNext, CAROUSEL_INTERVAL_MS);
     }
   };
 
@@ -269,12 +272,42 @@ const MainHome = () => {
       <div className="proof-strip">
         <p className="proof-heading">Resultados de cuentas reales</p>
         <div className="proof-grid">
-          <div className="proof-cell"><div className="proof-num">7,46<b>×</b></div><div className="proof-label">ROAS en campañas full-funnel de performance</div></div>
-          <div className="proof-cell"><div className="proof-num"><b>$</b>1,40</div><div className="proof-label">costo por conversación en campañas de leads</div></div>
-          <div className="proof-cell"><div className="proof-num">120,5<b>K</b></div><div className="proof-label">visualizaciones en 30 días (+46% de crecimiento)</div></div>
-          <div className="proof-cell"><div className="proof-num">6 <b>países</b></div><div className="proof-label">Argentina, México, Chile, Perú, R. Dominicana y EE.UU.</div></div>
+          <div className="proof-cell"><div className="proof-num">7,46<b>×</b></div><div className="proof-label">ROAS en campañas de performance</div></div>
+          <div className="proof-cell"><div className="proof-num"><b>$</b>0,85</div><div className="proof-label">costo por conversación en campañas de leads</div></div>
+          <div className="proof-cell"><div className="proof-num">295,1<b>K</b></div><div className="proof-label">visualizaciones organicas en el primer mes</div></div>
+          <div className="proof-cell"><div className="proof-num">7 <b>países</b></div><div className="proof-label">Argentina, México, Chile, Perú, Panamá, Rep. Dominicana y EE.UU.</div></div>
         </div>
       </div>
+
+      <section id="metodo" className="py-margin-desktop border-t border-line scroll-mt-24">
+        <div className="text-center mb-margin-desktop space-y-4">
+          <span className="eyebrow">Nuestro método</span>
+          <h2 className="section-title">Performance medible.<br />Sin humo.</h2>
+        </div>
+        <p className="method-quote">
+          Decisiones basadas en datos reales. No en{' '}
+          <span className="no">especulaciones</span>, no en{' '}
+          <span className="no">audios virales</span>, no en{' '}
+          <span className="no">&quot;a mí me funcionó&quot;</span>.
+        </p>
+        <div className="steps">
+          <div className="step">
+            <div className="sn">01</div>
+            <h3 className="card-title">Diagnóstico</h3>
+            <p>Auditamos números, competencia y embudo completo. El plan se construye sobre lo que es, no sobre lo que queremos que sea.</p>
+          </div>
+          <div className="step">
+            <div className="sn">02</div>
+            <h3 className="card-title">Ejecución</h3>
+            <p>Cada campaña, pieza y peso invertido tiene un objetivo asignado y una métrica que lo controla.</p>
+          </div>
+          <div className="step">
+            <div className="sn">03</div>
+            <h3 className="card-title">Resultados</h3>
+            <p>Reportes con costo por lead, ROAS y ventas. Lo que funciona se escala; lo que no, se corta.</p>
+          </div>
+        </div>
+      </section>
 
       <section id="mercado" className="py-margin-desktop border-t border-line">
         <div className="text-center mb-margin-desktop space-y-4">
@@ -308,7 +341,7 @@ const MainHome = () => {
       <section id="embudo" className="py-margin-desktop border-t border-line">
         <div className="text-center mb-margin-desktop space-y-4">
           <span className="eyebrow">El problema real</span>
-          <h2 className="section-title">Tu pauta no está rota.<br />Tu embudo, sí.</h2>
+          <h2 className="section-title">Tu publicidad no está rota.<br />Tu embudo, sí.</h2>
           <p className="section-subtitle">Llega el lead y se muere en un WhatsApp sin responder. Nos metemos en todo el circuito, de la campaña al cierre.</p>
         </div>
         <div className="leak-grid">
@@ -344,8 +377,9 @@ const MainHome = () => {
       </section>
 
       <section id="servicios" className="py-margin-desktop border-t border-line">
-        <div className="text-center mb-margin-desktop space-y-4">
-          <h2 className="section-title">Qué hacemos</h2>
+        <div className="svc-section-head">
+          <h2 className="svc-section-title">¿Qué <span>hacemos?</span></h2>
+          <p className="work-lead">Cubrimos tu departamento de marketing.</p>
           <p className="section-subtitle">Pauta, contenido, producción y desarrollo bajo un mismo equipo.</p>
         </div>
 
@@ -353,30 +387,27 @@ const MainHome = () => {
           <div className="svc-list-item">
             <h3>Campañas publicitarias</h3>
             <p>Meta, Google, retail media y optimización continua. Cada peso con un objetivo y un número que lo controla.</p>
-            <Link to="/servicios" className="svc-list-link">
-              Ver servicios <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </Link>
+            <ServiciosPeekLink />
           </div>
           <div className="svc-list-item">
             <h3>Contenido y producción</h3>
-            <p>Community management, diseño, video y producción audiovisual in-house. El orgánico alineado con la pauta.</p>
-            <Link to="/servicios" className="svc-list-link">
-              Ver servicios <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </Link>
+            <p>Diseño, video y producción audiovisual in-house. El orgánico alineado con la pauta.</p>
+            <ServiciosPeekLink />
           </div>
           <div className="svc-list-item">
             <h3>Desarrollo web</h3>
             <p>Sitios a medida, rápidos y orientados a convertir. Sin plantillas genéricas.</p>
-            <Link to="/servicios" className="svc-list-link">
-              Ver servicios <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </Link>
+            <ServiciosPeekLink />
           </div>
           <div className="svc-list-item">
             <h3>Consultoría &amp; performance</h3>
             <p>Diagnóstico, estrategia y acompañamiento comercial. Mirada externa basada en datos.</p>
-            <Link to="/servicios" className="svc-list-link">
-              Ver servicios <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </Link>
+            <ServiciosPeekLink />
+          </div>
+          <div className="svc-list-item">
+            <h3>Community management</h3>
+            <p>Estudiamos, planificamos y ejecutamos una estrategia orgánica paralela a la pasión que transmite tu producto o servicio.</p>
+            <ServiciosPeekLink />
           </div>
         </div>
       </section>
@@ -410,75 +441,6 @@ const MainHome = () => {
             <img alt="Paid Media" src={impactoVisual4} />
             <div className="gallery-overlay" />
             <span className="gallery-label">Paid Media</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="metodo" className="py-margin-desktop border-t border-line scroll-mt-24">
-        <div className="text-center mb-margin-desktop space-y-4">
-          <span className="eyebrow">Nuestro método</span>
-          <h2 className="section-title">Performance medible.<br />Sin humo.</h2>
-        </div>
-        <p className="method-quote">
-          Decisiones basadas en datos reales. No en{' '}
-          <span className="no">especulaciones</span>, no en{' '}
-          <span className="no">audios virales</span>, no en{' '}
-          <span className="no">&quot;a mí me funcionó&quot;</span>.
-        </p>
-        <div className="steps">
-          <div className="step">
-            <div className="sn">01</div>
-            <h3 className="card-title">Diagnóstico</h3>
-            <p>Auditamos números, competencia y embudo completo. El plan se construye sobre lo que es, no sobre lo que queremos que sea.</p>
-          </div>
-          <div className="step">
-            <div className="sn">02</div>
-            <h3 className="card-title">Ejecución</h3>
-            <p>Cada campaña, pieza y peso invertido tiene un objetivo asignado y una métrica que lo controla.</p>
-          </div>
-          <div className="step">
-            <div className="sn">03</div>
-            <h3 className="card-title">Resultados</h3>
-            <p>Reportes con costo por lead, ROAS y ventas. Lo que funciona se escala; lo que no, se corta.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="nuestra-historia" className="history-section scroll-mt-24">
-        <div className="history-header">
-          <h2 className="history-title">Nuestra <span>historia</span></h2>
-          <p className="history-lead">El equipo y la visión detrás de RevCardinal.</p>
-        </div>
-        <div className="history-grid">
-          <div className="history-text">
-            <h3 className="history-heading">
-              Desde 2019, transformando ideas en <span className="text-gradient-primary">resultados medibles</span>
-            </h3>
-            <p className="history-body">
-              RevCardinal nació con una misión clara: llevar estrategias de marketing digital de alto rendimiento a empresas de todos los tamaños. Hoy colaboramos con marcas de más de 10 industrias en 6 países.
-            </p>
-            <p className="history-body">
-              Combinamos análisis de datos, creatividad y ejecución precisa. Medimos cada decisión con KPIs claros y trabajamos en relaciones a largo plazo.
-            </p>
-            <div className="history-stats">
-              <div className="history-stat">
-                <span className="history-stat-num">+5</span>
-                <p className="history-stat-label">Años de experiencia</p>
-              </div>
-              <div className="history-stat">
-                <span className="history-stat-num">6</span>
-                <p className="history-stat-label">Países con clientes activos</p>
-              </div>
-              <div className="history-stat">
-                <span className="history-stat-num">15</span>
-                <p className="history-stat-label">Personas en el equipo</p>
-              </div>
-            </div>
-          </div>
-          <div className="history-visual">
-            <div className="history-img-box">
-              <img src={resultadosMedibles} alt="Resultados medibles" />
-            </div>
           </div>
         </div>
       </section>

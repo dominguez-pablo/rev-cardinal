@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import '../css/servicios.css';
-import decisiones from '../img/decisiones2.png';
+import ServiciosHeroBackdrop from './ServiciosHeroBackdrop';
 
 const serviciosData = [
   {
@@ -20,8 +20,8 @@ const serviciosData = [
       {
         title: 'Retail Media',
         desc: 'Pauta dentro de los marketplaces y retailers donde la gente realmente compra. El anuncio aparece en el momento exacto.',
-        highlight: 'Manejamos retail media en LatAm y gigantes de EE.UU.',
-        platforms: ['Mercado Ads', 'Walmart Connect'],
+        highlight: 'Hemos manejado retail media en LatAm y gigantes de EE.UU.',
+        platforms: ['Mercado Ads', 'Walmart Connect', 'Instacart', 'Kroger', 'Criteo', 'Target'],
       },
     ],
   },
@@ -66,7 +66,6 @@ const serviciosData = [
           'Sitios institucionales, landing pages y desarrollos específicos',
           'Diseño orientado a conversión',
           'Optimización de velocidad y adaptación a celulares',
-          'Integración con herramientas de medición',
         ],
       },
     ],
@@ -144,11 +143,16 @@ const AccordionItem = ({ item }) => (
 );
 
 const MainServicios = () => {
+  const heroRef = useRef(null);
+
   return (
     <main className="pt-20">
-      <section className="sv-hero px-gutter-desktop">
-        <div className="max-w-[1100px] mx-auto w-full relative z-10 grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6 sv-hero-content">
+      <section ref={heroRef} className="sv-hero px-gutter-desktop">
+        <ServiciosHeroBackdrop containerRef={heroRef} />
+        <div className="sv-hero-vignette" aria-hidden="true" />
+        <div className="max-w-[1100px] mx-auto w-full relative z-10">
+          <div className="sv-hero-inner">
+            <span className="eyebrow">Servicios</span>
             <div className="sv-hero-dash">
               <h1 className="sv-hero-title">
                 Performance medible.<br />
@@ -164,13 +168,6 @@ const MainServicios = () => {
                 <span className="material-symbols-outlined">arrow_downward</span>
               </a>
             </div>
-          </div>
-          <div className="hidden md:block">
-            <img
-              alt="Dashboard de performance"
-              className="w-full h-auto"
-              src={decisiones}
-            />
           </div>
         </div>
       </section>
