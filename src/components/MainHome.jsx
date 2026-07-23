@@ -28,6 +28,7 @@ import impactoVisual2 from '../img/2content_production.png';
 import impactoVisual3 from '../img/3social_media_design.png';
 import impactoVisual4 from '../img/4PaidMediaAds_results.png';
 import { homeHash, WHATSAPP_URL } from '../constants/links';
+import { faqItems } from '../constants/faq';
 import WhatsAppIcon from './WhatsAppIcon';
 
 /** Tamaño visual en el marquee (el PNG puede ser 600×600 con mucho padding transparente). */
@@ -49,32 +50,6 @@ const carouselLogos = [
   { src: group288, alt: 'En Llamas' },
   { src: group90, alt: 'QJ Motor NOA' },
   { src: bmwMotorradLogo, size: 'wide', alt: 'Berlín Motors BMW Motorrad' },
-];
-
-const faqItems = [
-  {
-    question: '¿Cuánto cuesta trabajar con Rev Cardinal?',
-    answer: 'Armamos planes a medida según tus objetivos y tu etapa: no vendemos paquetes enlatados. El diagnóstico inicial es gratis y sin compromiso, y cotizamos sobre trabajo medible — no sobre promesas.',
-    highlight: 'gratis y sin compromiso',
-  },
-  {
-    question: '¿Trabajan solo con empresas de Tucumán?',
-    answer: 'No. Trabajamos con marcas de toda Argentina y del exterior (México, Chile, Perú, R. Dominicana y EE.UU.). Pauta, contenidos, automatización y comunidades se gestionan 100% remoto.',
-  },
-  {
-    question: '¿En cuánto tiempo se ven resultados?',
-    answer: 'La pauta genera datos desde la primera semana, pero la optimización seria lleva 60 a 90 días de iteración. Desconfiá de quien te promete magia en días.',
-    highlight: '60 a 90 días',
-  },
-  {
-    question: '¿Qué los diferencia de otra agencia?',
-    answer: 'Somos una agencia con cupo limitado de clientes, estudiamos desde el fondo el cliente potencial de cada producto o servicio y transmitimos emociones que llevan a resultados.',
-    highlight: 'circuito comercial completo',
-  },
-  {
-    question: '¿Qué necesito para empezar?',
-    answer: 'Un mensaje de WhatsApp. Te hacemos un diagnóstico honesto y gratuito de tu presencia digital. Si no podemos ayudarte, también te lo decimos.',
-  },
 ];
 
 const CAROUSEL_INTERVAL_MS = 7000;
@@ -178,7 +153,7 @@ const MainHome = () => {
       >
         <div ref={carouselRef} onScroll={handleScroll} className="flex overflow-x-auto snap-x snap-mandatory h-full hide-scrollbar scroll-smooth w-full" id="hero-carousel">
           <div className="hero-slide">
-            <img className="absolute inset-0 w-full h-full object-cover" src={carrousel1} alt="" />
+            <img className="absolute inset-0 w-full h-full object-cover" src={carrousel1} alt="Producción de contenido y campañas de marketing digital RevCardinal" />
             <div className="hero-overlay-l" />
             <div className="hero-content">
               <div className="hero-text">
@@ -196,13 +171,13 @@ const MainHome = () => {
           </div>
 
           <div className="hero-slide">
-            <img className="absolute inset-0 w-full h-full object-cover" src={carrousel2} alt="" />
+            <img className="absolute inset-0 w-full h-full object-cover" src={carrousel2} alt="Estrategia de performance y publicidad digital para marcas" />
             <div className="hero-overlay-m" />
             <div className="hero-content">
               <div className="hero-text">
-                <h1 className="hero-title-lg">
+                <h2 className="hero-title-lg">
                   Escala tu negocio con <span className="text-gradient-primary">estrategia y datos</span>
-                </h1>
+                </h2>
                 <p className="hero-desc">
                   Conectamos marcas con audiencias reales. Publicidad, contenido y automatización comercial en un solo equipo.
                 </p>
@@ -217,13 +192,13 @@ const MainHome = () => {
           </div>
 
           <div className="hero-slide">
-            <img className="absolute inset-0 w-full h-full object-cover" src={carrousel3} alt="" />
+            <img className="absolute inset-0 w-full h-full object-cover" src={carrousel3} alt="Equipo de agencia de marketing integrado RevCardinal" />
             <div className="hero-overlay-m" />
             <div className="hero-content">
               <div className="hero-text">
-                <h1 className="hero-title-lg">
+                <h2 className="hero-title-lg">
                   Decisiones basadas en <span className="text-gradient-primary">datos duros</span>
-                </h1>
+                </h2>
                 <p className="hero-desc">
                   Convertimos métricas en acciones concretas. Lo que funciona se escala; lo que no, se corta.
                 </p>
