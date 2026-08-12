@@ -1,4 +1,5 @@
 import { WHATSAPP_PHONE } from './links';
+import pageSeo from './page-seo.json';
 
 /** URL canónica del sitio (sin barra final). Definir VITE_SITE_URL en producción. */
 export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://revcardinal.com').replace(/\/$/, '');
@@ -17,26 +18,7 @@ export const SOCIAL = {
   linkedin: 'https://www.linkedin.com/company/revcardinal-marketing-company/',
 };
 
-export const PAGE_SEO = {
-  home: {
-    path: '/',
-    title: 'RevCardinal | Agencia de marketing digital y performance',
-    description:
-      'Pauta, contenido y producción bajo un mismo techo. Estrategia con datos reales para marcas en Argentina y LatAm. Diagnóstico gratuito por WhatsApp.',
-  },
-  servicios: {
-    path: '/servicios',
-    title: 'Servicios | Paid media, contenido y producción | RevCardinal',
-    description:
-      'Paid media, retail media, community management, diseño, producción audiovisual, e-commerce y automatización comercial. Un equipo integral con reportes claros.',
-  },
-  nosotros: {
-    path: '/nosotros',
-    title: 'Nosotros | Historia y equipo | RevCardinal',
-    description:
-      'Conocé la historia de RevCardinal: desde Tucumán hacia marcas de Argentina y el exterior. Marketing con estrategia, creatividad y ejecución medible.',
-  },
-};
+export const PAGE_SEO = pageSeo;
 
 export function absoluteUrl(path = '/') {
   if (!path || path === '/') return `${SITE_URL}/`;
