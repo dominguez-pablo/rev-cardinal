@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { absoluteUrl } from '../constants/seo';
 
 const JSON_LD_ID = 'revcardinal-jsonld';
 
@@ -67,7 +68,7 @@ export default function PageSEO({
   useEffect(() => {
     const canonical = canonicalPath.startsWith('http')
       ? canonicalPath
-      : `${window.location.origin}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
+      : absoluteUrl(canonicalPath);
 
     document.title = title;
     upsertMeta('name', 'description', description);
